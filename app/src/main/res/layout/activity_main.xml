@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sv_root">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hugh.tests.MainActivity">
+
+    <TextView
+        android:transitionName="share"
+        android:text="This is a Header"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="15sp"
+        android:background="@android:color/holo_green_dark"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/tv_header"/>
+
+    <com.example.hugh.tests.Views.ElasticListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lv_content"
+        android:background="@android:color/holo_blue_bright"/>
+
+</LinearLayout>
+</ScrollView>
