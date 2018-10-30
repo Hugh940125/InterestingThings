@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/robot_normal">
+
+    <target
+        android:animation="@animator/robot_cross_out"
+        android:name="crossPath"/>
+
+    <target
+        android:animation="@animator/robot_clip_out"
+        android:name="maskClipPath"/>
+
+</animated-vector>

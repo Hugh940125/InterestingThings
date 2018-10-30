@@ -5,8 +5,8 @@
         android:animation="@animator/anim_search"
         android:name="search"/>
 
-    <target
+    <!--<target
         android:animation="@animator/anim_search"
-        android:name="bar"/>
+        android:name="bar"/>-->
 
 </animated-vector>

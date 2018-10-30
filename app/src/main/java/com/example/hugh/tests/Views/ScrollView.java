@@ -4,9 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.Scroller;
-import android.widget.TextView;
 
-public class ScrollView extends TextView {
+public class ScrollView extends android.support.v7.widget.AppCompatTextView {
 
     private int mLastX;
     private int mLastY;

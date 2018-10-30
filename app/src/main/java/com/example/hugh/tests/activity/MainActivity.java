@@ -1,6 +1,5 @@
-package com.example.hugh.tests;
+package com.example.hugh.tests.activity;
 
-import android.animation.ObjectAnimator;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
@@ -9,14 +8,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.example.hugh.tests.R;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView tv_header;
-    private ListView lv_content;
     private ScrollView sv_root;
 
     @Override
@@ -24,9 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv_header = (TextView) findViewById(R.id.tv_header);
-        lv_content = (ListView) findViewById(R.id.lv_content);
-        sv_root = (ScrollView) findViewById(R.id.sv_root);
+        tv_header =  findViewById(R.id.tv_header);
+        sv_root =  findViewById(R.id.sv_root);
 
         tv_header.setOnClickListener(new View.OnClickListener() {
             @Override

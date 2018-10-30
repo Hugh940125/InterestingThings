@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Tests.iml" filepath="$PROJECT_DIR$/Tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StudyTests.iml" filepath="$PROJECT_DIR$/StudyTests.iml" />
+      <module fileurl="file://G:\KownledgeBase\StudyTests\Tests.iml" filepath="G:\KownledgeBase\StudyTests\Tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

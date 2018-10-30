@@ -1,7 +1,9 @@
-package com.example.hugh.tests;
+package com.example.hugh.tests.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.hugh.tests.R;
 
 public class ScrollActivity extends AppCompatActivity {
 

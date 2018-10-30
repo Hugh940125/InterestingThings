@@ -10,9 +10,21 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hugh.tests.MainActivity">
+    tools:context="com.example.hugh.tests.activity.MainActivity">
 
     <TextView
+        android:transitionName="share"
+        android:text="This is a Header"
+        android:gravity="center"
+        android:layout_marginBottom="1dp"
+        android:padding="10dp"
+        android:textSize="15sp"
+        android:background="@android:color/holo_green_dark"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/tv_header"/>
+
+    <Button
         android:transitionName="share"
         android:text="This is a Header"
         android:gravity="center"
@@ -20,14 +32,7 @@
         android:textSize="15sp"
         android:background="@android:color/holo_green_dark"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:id="@+id/tv_header"/>
-
-    <com.example.hugh.tests.Views.ElasticListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lv_content"
-        android:background="@android:color/holo_blue_bright"/>
+        android:layout_height="50dp" />
 
 </LinearLayout>
 </ScrollView>

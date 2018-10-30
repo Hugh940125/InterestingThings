@@ -7,16 +7,17 @@
     <path android:name="search"
         android:pathData="M 141,17
                           A 9,9,0,1,1,142,16
-                          L 149,23"
+                          L 149,23,17,23"
         android:strokeColor="@android:color/black"
         android:strokeLineCap="round"
-        android:strokeWidth="2"/>
+        android:strokeWidth="2"
+        android:strokeLineJoin="round"/>
 
-    <path android:name="bar"
+    <!--<path android:name="bar"
         android:pathData="M 0,23
                           L 149,23"
         android:strokeColor="@android:color/black"
         android:strokeLineCap="round"
-        android:strokeWidth="2"/>
+        android:strokeWidth="2"/>-->
 
 </vector>
