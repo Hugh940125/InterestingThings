@@ -1,18 +1,18 @@
 package com.example.hugh.tests.Views;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.widget.ListView;
 
-public class ElasticListView extends ListView {
+public class ElasticRecyclerView extends RecyclerView {
 
     private final int MAX_OVER_SCROLL_Y = 100;
 
-    public ElasticListView(Context context) {
+    public ElasticRecyclerView(Context context) {
         super(context);
     }
 
-    public ElasticListView(Context context, AttributeSet attrs) {
+    public ElasticRecyclerView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

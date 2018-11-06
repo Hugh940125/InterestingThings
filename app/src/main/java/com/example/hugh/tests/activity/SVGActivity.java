@@ -17,6 +17,7 @@ public class SVGActivity extends AppCompatActivity {
     private ImageView image2;
     private ImageView image3;
     private CheckBox image4;
+    private ImageView image5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,14 @@ public class SVGActivity extends AppCompatActivity {
                 animate4();
             }
         });
+
+        image5 = findViewById(R.id.image5);
+        image5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animate5();
+            }
+        });
     }
 
     public void animate1(){
@@ -79,6 +88,13 @@ public class SVGActivity extends AppCompatActivity {
 
     public void animate4(){
         Drawable drawable = image4.getBackground();
+        if (drawable instanceof Animatable){
+            ((Animatable)drawable).start();
+        }
+    }
+
+    public void animate5(){
+        Drawable drawable = image5.getDrawable();
         if (drawable instanceof Animatable){
             ((Animatable)drawable).start();
         }

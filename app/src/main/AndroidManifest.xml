@@ -13,14 +13,14 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait">
             <!--固定屏幕的方向，处理键盘滑出事件，防止activity关闭或者重启-->
+        </activity>
+        <activity android:name=".activity.SVGActivity" />
+        <activity android:name=".activity.ScrollActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".activity.SVGActivity" />
-        <activity android:name=".activity.ScrollActivity">
         </activity>
     </application>
 

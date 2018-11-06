@@ -48,5 +48,12 @@
         android:layout_height="300dp"
         android:id="@+id/image4"/>
 
+    <ImageView
+        android:gravity="center"
+        android:src="@drawable/svg_play_to_pause"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/image5"/>
+
 </LinearLayout>
 </ScrollView>
