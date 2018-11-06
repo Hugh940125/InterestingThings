@@ -68,7 +68,7 @@ public class HousePlanView extends ViewGroup {
 
                 for (int i=0;i<childCount;i++){
                     View child = getChildAt(i);
-                    Rect deleteRect = new Rect(child.getLeft()+child.getWidth()-20, child.getTop()+20, child.getRight(), child.getBottom());
+                    Rect deleteRect = new Rect(child.getLeft()+child.getWidth()-50, child.getTop()+50, child.getRight(), child.getBottom());
                     if (deleteRect.contains(x1,y1)){
                         removeViewAt(i);
                         break;
@@ -78,7 +78,7 @@ public class HousePlanView extends ViewGroup {
                 for (int i=0;i<childCount;i++){
                     View child = getChildAt(i);
                     Rect rect = new Rect(child.getLeft(), child.getTop(), child.getRight(), child.getBottom());
-                    Rect deleteRect = new Rect(child.getLeft()+child.getWidth()-20, child.getTop()+20, child.getRight(), child.getBottom());
+                    Rect deleteRect = new Rect(child.getLeft()+child.getWidth()-50, child.getTop()+50, child.getRight(), child.getBottom());
                     if (rect.contains(x1,y1)){
                         mSelectedView = i;
                     }
@@ -121,4 +121,7 @@ public class HousePlanView extends ViewGroup {
         return true;
     }
 
+    public void addRoom(String name,float positionX,float positionY){
+        
+    }
 }
