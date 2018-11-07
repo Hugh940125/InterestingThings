@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.hugh.tests.activity.ScrollActivity">
 
     <com.example.hugh.tests.Views.HousePlanView
         android:layout_width="match_parent"
         android:background="@android:color/holo_blue_bright"
-        android:gravity="center"
         android:layout_height="200dp"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools">
+        android:id="@+id/hpv">
 
-        <TextView
+        <!--<TextView
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:text="卧室"
@@ -25,8 +24,26 @@
             android:layout_height="50dp"
             android:text="卧室"
             android:gravity="center"
-            android:background="@color/colorAccent"/>
+            android:background="@color/colorAccent"/>-->
 
     </com.example.hugh.tests.Views.HousePlanView>
 
-</RelativeLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="卧室"
+        android:id="@+id/bedroom"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="客厅"
+        android:id="@+id/living_room"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="保存"
+        android:id="@+id/save"/>
+
+</LinearLayout>
