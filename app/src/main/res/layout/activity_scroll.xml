@@ -8,7 +8,7 @@
 
     <com.example.hugh.tests.Views.HousePlanView
         android:layout_width="match_parent"
-        android:background="@android:color/holo_blue_bright"
+        android:background="@mipmap/ic_launcher"
         android:layout_height="200dp"
         android:id="@+id/hpv">
 
@@ -45,5 +45,20 @@
         android:layout_height="50dp"
         android:text="保存"
         android:id="@+id/save"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/ll"
+        android:orientation="vertical">
+
+     <com.example.hugh.tests.Views.CustomTextView
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="自定义"
+        android:gravity="center"/>
+
+    </LinearLayout>
 
 </LinearLayout>

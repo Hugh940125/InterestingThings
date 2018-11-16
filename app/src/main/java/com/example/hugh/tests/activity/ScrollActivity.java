@@ -3,9 +3,12 @@ package com.example.hugh.tests.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.hugh.tests.R;
+import com.example.hugh.tests.Views.CustomTextView;
 import com.example.hugh.tests.Views.HousePlanView;
 
 public class ScrollActivity extends AppCompatActivity {
@@ -18,6 +21,7 @@ public class ScrollActivity extends AppCompatActivity {
         Button bedroom = findViewById(R.id.bedroom);
         Button living_room = findViewById(R.id.living_room);
         Button save = findViewById(R.id.save);
+        //LinearLayout ll = findViewById(R.id.ll);
         bedroom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,6 +44,10 @@ public class ScrollActivity extends AppCompatActivity {
             }
         });
 
+        /*CustomTextView customTextView = new CustomTextView(this);
+        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100);
+        customTextView.setLayoutParams(layoutParams);
+        ll.addView(customTextView);*/
     }
 
     @Override

@@ -1,7 +1,9 @@
 package com.example.hugh.tests.Views;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -10,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.example.hugh.tests.R;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,10 +35,15 @@ public class HousePlanView extends ViewGroup {
 
     public HousePlanView(Context context) {
         super(context);
+        init(context);
     }
 
     public HousePlanView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init(context);
+    }
+
+    private void init(Context context){
         this.mContext = context;
     }
 
@@ -54,7 +62,6 @@ public class HousePlanView extends ViewGroup {
         setMeasuredDimension(width,height);
     }
 
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int childCount = getChildCount();
@@ -68,7 +75,7 @@ public class HousePlanView extends ViewGroup {
 
                 for (int i=0;i<childCount;i++){
                     View child = getChildAt(i);
-                    Rect deleteRect = new Rect(child.getLeft()+child.getWidth()-50, child.getTop()+50, child.getRight(), child.getBottom());
+                    Rect deleteRect = new Rect(child.getRight()-30, child.getTop(), child.getRight(), child.getTop()+30);
                     if (deleteRect.contains(x1,y1)){
                         removeViewAt(i);
                         break;
@@ -78,13 +85,9 @@ public class HousePlanView extends ViewGroup {
                 for (int i=0;i<childCount;i++){
                     View child = getChildAt(i);
                     Rect rect = new Rect(child.getLeft(), child.getTop(), child.getRight(), child.getBottom());
-                    Rect deleteRect = new Rect(child.getLeft()+child.getWidth()-50, child.getTop()+50, child.getRight(), child.getBottom());
                     if (rect.contains(x1,y1)){
                         mSelectedView = i;
                         child.bringToFront();
-                    }
-                    if (deleteRect.contains(x1,y1)){
-                        removeViewAt(i);
                     }
                 }
 
@@ -125,7 +128,7 @@ public class HousePlanView extends ViewGroup {
     }
 
     public void addRoom(String name,double xScale,double yScale){
-        TextView textView = new TextView(mContext);
+        TextView textView = new CustomTextView(mContext);
         int height = getHeight();
         int width = getWidth();
         int childWidth = (int) (getWidth() / TAG_WIDTH_SCALE);
@@ -133,7 +136,8 @@ public class HousePlanView extends ViewGroup {
         LayoutParams layoutParams = new LayoutParams(childWidth, childHeight);
         textView.setLayoutParams(layoutParams);
         textView.setGravity(Gravity.CENTER);
-        textView.setBackgroundColor(Color.CYAN);
+        //textView.setBackgroundColor(Color.CYAN);
+        textView.setBackground(mContext.getResources().getDrawable(R.drawable.robot));
         textView.setText(name);
         if (xScale == 0 && yScale == 0){
             textView.layout(width/2-childWidth/2,height/2-childHeight/2,width/2+childWidth/2,height/2+childHeight/2);
@@ -150,7 +154,6 @@ public class HousePlanView extends ViewGroup {
     @Override
     public void onViewAdded(View child) {
         super.onViewAdded(child);
-
     }
 
     public void saveRoomTags(){
