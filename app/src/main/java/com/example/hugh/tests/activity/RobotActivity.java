@@ -5,6 +5,8 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Gravity;
@@ -62,11 +64,13 @@ public class RobotActivity extends AppCompatActivity {
         iv_cancel = findViewById(R.id.iv_cancel);
 
         WindowManager windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-        Display defaultDisplay = windowManager.getDefaultDisplay();
-        final DisplayMetrics displayMetrics = new DisplayMetrics();
-        defaultDisplay.getMetrics(displayMetrics);
-        widthPixels = displayMetrics.widthPixels;
-        heightPixels = displayMetrics.heightPixels;
+        if (windowManager != null) {
+            Display defaultDisplay = windowManager.getDefaultDisplay();
+            final DisplayMetrics displayMetrics = new DisplayMetrics();
+            defaultDisplay.getMetrics(displayMetrics);
+            widthPixels = displayMetrics.widthPixels;
+            heightPixels = displayMetrics.heightPixels;
+        }
 
         iv_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,11 +105,56 @@ public class RobotActivity extends AppCompatActivity {
                     public void onAnimationEnd(Animator animation) {
                         rl_content.setVisibility(View.INVISIBLE);
                         iv.setOnClickListener(new View.OnClickListener() {
+
                             @Override
                             public void onClick(View v) {
-                                ObjectAnimator.ofFloat(iv, "rotation",  0.0F,360.0F)//
-                                        .setDuration(1000)
-                                .start();
+                                ObjectAnimator rotation3 = ObjectAnimator
+                                        .ofFloat(rl_content, "translationY", rl_content.getHeight(),0.0F)//
+                                        .setDuration(1000);
+
+                                final AnimatorSet animatorSet = new AnimatorSet();
+                                ObjectAnimator rotation = ObjectAnimator
+                                        .ofFloat(iv, "rotation", 340.0F, 0.0F)//
+                                        .setDuration(1000);
+
+                                ObjectAnimator rotation1 = ObjectAnimator
+                                        .ofFloat(iv, "translationX", widthPixels /2, 0.0F )//
+                                        .setDuration(1000);
+                                animatorSet.playTogether(rotation,rotation1);
+
+                                int width = tv_dialog.getWidth() / 2;
+                                ObjectAnimator rotation2 = ObjectAnimator
+                                        .ofFloat(tv_dialog, "translationX", widthPixels /2 - width, 0.0F)//
+                                        .setDuration(1000);
+                                animatorSet.playTogether(rotation,rotation1,rotation2,rotation3);
+                                animatorSet.addListener(new Animator.AnimatorListener() {
+
+                                    @Override
+                                    public void onAnimationStart(Animator animation) {
+                                        rl_content.setVisibility(View.VISIBLE);
+                                    }
+
+                                    @Override
+                                    public void onAnimationEnd(Animator animation) {
+                                        iv.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                Rotate360DegreesInPlace();
+                                            }
+                                        });
+                                    }
+
+                                    @Override
+                                    public void onAnimationCancel(Animator animation) {
+
+                                    }
+
+                                    @Override
+                                    public void onAnimationRepeat(Animator animation) {
+
+                                    }
+                                });
+                                animatorSet.start();
                             }
                         });
                     }
@@ -128,6 +177,7 @@ public class RobotActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                tv_dialog.setVisibility(View.INVISIBLE);
                 ObjectAnimator rotation3 = ObjectAnimator
                         .ofFloat(rl_content, "translationY", rl_content.getHeight(),0.0F)//
                         .setDuration(1000);
@@ -156,7 +206,15 @@ public class RobotActivity extends AppCompatActivity {
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
-
+                        iv.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Rotate360DegreesInPlace();
+                            }
+                        });
+                        tv_dialog.setVisibility(View.VISIBLE);
+                        tv_dialog.setText(Html.fromHtml("你敢"+"<a href=\"urlscheme://auth_activity\">点我试试</a>"+"吗？"));//
+                        tv_dialog.setMovementMethod(LinkMovementMethod.getInstance());
                     }
 
                     @Override
@@ -176,63 +234,46 @@ public class RobotActivity extends AppCompatActivity {
         bt_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final AnimatorSet animatorSet = new AnimatorSet();
-                ObjectAnimator rotation = ObjectAnimator
-                        .ofFloat(iv, "rotation", 0.0F, 340.0F)//
-                        .setDuration(1000);
-
-                ObjectAnimator rotation1 = ObjectAnimator
-                        .ofFloat(iv, "translationX", 0.0F, widthPixels /2)//
-                        .setDuration(1000);
-                animatorSet.playTogether(rotation,rotation1);
-
-                int width = tv_dialog.getWidth() / 2;
-                ObjectAnimator rotation2 = ObjectAnimator
-                        .ofFloat(tv_dialog, "translationX", 0.0F, widthPixels /2 - width)//
-                        .setDuration(1000);
-                animatorSet.playTogether(rotation,rotation1,rotation2);
-
-                animatorSet.addListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-                        tv_dialog.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        tv_dialog.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-                });
-                animatorSet.start();
+                sideRetracted();
             }
         });
 
         bt_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iv_right.setVisibility(View.VISIBLE);
-                iv.setVisibility(View.GONE);
-                AnimatorSet animatorSet = new AnimatorSet();
-                Interpolator accelerateInterpolator = new AccelerateInterpolator();
-                final ObjectAnimator rotation = ObjectAnimator
-                        .ofFloat(iv_right, "translationX", 0.0F, -widthPixels /2 + iv_right.getWidth()/2)
+                Appearance();
+            }
+        });
+    }
+
+    private void Appearance() {
+        iv_right.setVisibility(View.VISIBLE);
+        iv.setVisibility(View.GONE);
+        AnimatorSet animatorSet = new AnimatorSet();
+        Interpolator accelerateInterpolator = new AccelerateInterpolator();
+        final ObjectAnimator rotation = ObjectAnimator
+                .ofFloat(iv_right, "translationX", 0.0F, -widthPixels /2 + iv_right.getWidth()/2)
+                .setDuration(500);
+        final ObjectAnimator rotation1 = ObjectAnimator
+                .ofFloat(iv_right, "translationY", 0.0F, heightPixels /2 - iv_right.getHeight()*2)
+                .setDuration(500);
+        rotation1.setInterpolator(accelerateInterpolator);
+        animatorSet.playTogether(rotation,rotation1);
+        animatorSet.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                DecelerateInterpolator decelerateInterpolator = new DecelerateInterpolator();
+                ObjectAnimator translationY = ObjectAnimator
+                        .ofFloat(iv_right, "translationY", heightPixels / 2 - iv_right.getHeight() * 2, heightPixels / 2 - iv_right.getHeight() * 3, heightPixels / 2 - iv_right.getHeight() * 2)//
                         .setDuration(500);
-                final ObjectAnimator rotation1 = ObjectAnimator
-                        .ofFloat(iv_right, "translationY", 0.0F, heightPixels /2 - iv_right.getHeight()*2)
-                        .setDuration(500);
-                rotation1.setInterpolator(accelerateInterpolator);
-                animatorSet.playTogether(rotation,rotation1);
-                animatorSet.addListener(new Animator.AnimatorListener() {
+                translationY.setInterpolator(decelerateInterpolator);
+                translationY.start();
+                translationY.addListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationStart(Animator animation) {
 
@@ -240,34 +281,8 @@ public class RobotActivity extends AppCompatActivity {
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        DecelerateInterpolator decelerateInterpolator = new DecelerateInterpolator();
-                        ObjectAnimator translationY = ObjectAnimator
-                                .ofFloat(iv_right, "translationY", heightPixels / 2 - iv_right.getHeight() * 2, heightPixels / 2 - iv_right.getHeight() * 3, heightPixels / 2 - iv_right.getHeight() * 2)//
-                                .setDuration(500);
-                        translationY.setInterpolator(decelerateInterpolator);
-                        translationY.start();
-                        translationY.addListener(new Animator.AnimatorListener() {
-                            @Override
-                            public void onAnimationStart(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                iv_right.setVisibility(View.GONE);
-                                iv.setVisibility(View.VISIBLE);
-                            }
-
-                            @Override
-                            public void onAnimationCancel(Animator animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationRepeat(Animator animation) {
-
-                            }
-                        });
+                        iv_right.setVisibility(View.GONE);
+                        iv.setVisibility(View.VISIBLE);
                     }
 
                     @Override
@@ -280,9 +295,66 @@ public class RobotActivity extends AppCompatActivity {
 
                     }
                 });
-                animatorSet.start();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
             }
         });
+        animatorSet.start();
+    }
+
+    private void sideRetracted() {
+        final AnimatorSet animatorSet = new AnimatorSet();
+        ObjectAnimator rotation = ObjectAnimator
+                .ofFloat(iv, "rotation", 0.0F, 340.0F)//
+                .setDuration(1000);
+
+        ObjectAnimator rotation1 = ObjectAnimator
+                .ofFloat(iv, "translationX", 0.0F, widthPixels /2)//
+                .setDuration(1000);
+        animatorSet.playTogether(rotation,rotation1);
+
+        int width = tv_dialog.getWidth() / 2;
+        ObjectAnimator rotation2 = ObjectAnimator
+                .ofFloat(tv_dialog, "translationX", 0.0F, widthPixels /2 - width)//
+                .setDuration(1000);
+        animatorSet.playTogether(rotation,rotation1,rotation2);
+
+        animatorSet.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                tv_dialog.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                tv_dialog.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        animatorSet.start();
+    }
+
+    private void Rotate360DegreesInPlace() {
+        ObjectAnimator.ofFloat(iv, "rotation",  0.0F,360.0F)//
+                .setDuration(1000)
+                .start();
     }
 
 }

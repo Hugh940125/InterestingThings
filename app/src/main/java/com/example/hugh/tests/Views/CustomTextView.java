@@ -16,16 +16,23 @@ import com.example.hugh.tests.R;
 
 public class CustomTextView extends android.support.v7.widget.AppCompatTextView {
 
+    private int mode;
     private Paint mPaint;
     private int width;
     private int height;
 
 
-    public CustomTextView(Context context) {
+    public CustomTextView(Context context,int mode) {
         super(context);
+        this.mode = mode;
         mPaint = new Paint();
         mPaint.setColor(context.getResources().getColor(R.color.colorAccent));
         mPaint.setStyle(Paint.Style.FILL);
+    }
+
+    public void setMode(int mode){
+        this.mode = mode;
+        invalidate();
     }
 
     public CustomTextView(Context context, @Nullable AttributeSet attrs) {
@@ -62,7 +69,9 @@ public class CustomTextView extends android.support.v7.widget.AppCompatTextView 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        drawDeleteRegion(canvas);
+        if (mode == 0){
+            drawDeleteRegion(canvas);
+        }
     }
 
     private void drawDeleteRegion(Canvas canvas) {

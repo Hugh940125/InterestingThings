@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.hugh.tests.activity.ScrollActivity">
+    tools:context="com.example.hugh.tests.activity.HousePlanActivity">
 
     <com.example.hugh.tests.Views.HousePlanView
         android:layout_width="match_parent"
@@ -46,19 +46,11 @@
         android:text="保存"
         android:id="@+id/save"/>
 
-
-    <LinearLayout
+     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/ll"
-        android:orientation="vertical">
-
-     <com.example.hugh.tests.Views.CustomTextView
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:text="自定义"
-        android:gravity="center"/>
-
-    </LinearLayout>
+        android:text="编辑模式"
+        android:gravity="center"
+         android:id="@+id/bt_switch"/>
 
 </LinearLayout>

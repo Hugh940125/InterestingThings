@@ -6,12 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hugh.tests.R;
 import com.example.hugh.tests.Views.CustomTextView;
 import com.example.hugh.tests.Views.HousePlanView;
 
-public class ScrollActivity extends AppCompatActivity {
+public class HousePlanActivity extends AppCompatActivity implements HousePlanView.OnRoomClickListener{
+
+    private int mode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +25,23 @@ public class ScrollActivity extends AppCompatActivity {
         Button bedroom = findViewById(R.id.bedroom);
         Button living_room = findViewById(R.id.living_room);
         Button save = findViewById(R.id.save);
-        //LinearLayout ll = findViewById(R.id.ll);
+        final Button bt_switch = findViewById(R.id.bt_switch);
+
+        bt_switch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mode == 0){
+                    hpv.setMode(1);
+                    mode = 1;
+                    bt_switch.setText("显示模式");
+                }else {
+                    hpv.setMode(0);
+                    mode = 0;
+                    bt_switch.setText("编辑模式");
+                }
+            }
+        });
+
         bedroom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +64,8 @@ public class ScrollActivity extends AppCompatActivity {
             }
         });
 
+        hpv.setOnRoomClickListener(this);
+
         /*CustomTextView customTextView = new CustomTextView(this);
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100);
         customTextView.setLayoutParams(layoutParams);
@@ -54,5 +76,11 @@ public class ScrollActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+    }
+
+    @Override
+    public void onRoomClick(View view) {
+        String text = ((TextView) view).getText().toString();
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
 }

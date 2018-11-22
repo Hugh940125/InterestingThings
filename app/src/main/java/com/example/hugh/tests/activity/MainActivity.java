@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -17,85 +18,50 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tv_header;
     private ScrollView sv_root;
+    private MainActivity mActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv_header =  findViewById(R.id.tv_header);
-        sv_root =  findViewById(R.id.sv_root);
+        mActivity = this;
+
+        tv_header = findViewById(R.id.tv_header);
+        sv_root = findViewById(R.id.sv_root);
+        Button robot = findViewById(R.id.robot);
+        Button svg = findViewById(R.id.svg);
+        Button house_plan = findViewById(R.id.house_plan);
+
+        robot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mActivity,RobotActivity.class));
+            }
+        });
+
+        svg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mActivity,SVGActivity.class));
+            }
+        });
+
+        house_plan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mActivity,HousePlanActivity.class));
+            }
+        });
 
         tv_header.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SVGActivity.class);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(MainActivity.this,tv_header,"share").toBundle());
+                    startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, tv_header, "share").toBundle());
                 }
             }
         });
-
-        sv_root.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch (motionEvent.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        float y = motionEvent.getY();
-                        Log.e("当前的y",y+"");
-                        if (y >= 100){
-                            sv_root.setEnabled(false);
-                        }else {
-                            sv_root.setEnabled(true);
-                        }
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        break;
-                }
-                return true;
-            }
-        });
-
-        /*//属性动画的简写方式
-        tv_header.animate()
-                .alpha(0)
-                .setDuration(3000)
-                .y(300)
-                .withStartAction(new Runnable() {
-                    @Override
-                    public void run() {
-
-                    }
-                })
-                .withEndAction(new Runnable() {
-                    @Override
-                    public void run() {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-
-                            }
-                        });
-                    }
-                }).start();*/
     }
-
-    /*//取消线程
-    private volatile Thread myThread;
-
-    //1.在onstop方法中停止线程
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Thread dummy = myThread;
-        myThread = null;
-        dummy.interrupt();
-    }
-
-    //2.将线程设置为守护线程，使线程在主线程停止时停止
-    //myThread.setDeamon(true);
-    //myThread.start();*/
-
 }

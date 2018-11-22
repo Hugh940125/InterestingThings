@@ -34,5 +34,23 @@
         android:layout_width="match_parent"
         android:layout_height="50dp" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Robot"
+        android:id="@+id/robot"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HousePlan"
+        android:id="@+id/house_plan"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SVG"
+        android:id="@+id/svg"/>
+
 </LinearLayout>
 </ScrollView>
