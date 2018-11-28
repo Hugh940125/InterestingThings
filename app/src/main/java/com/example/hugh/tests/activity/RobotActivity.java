@@ -9,26 +9,18 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.DisplayMetrics;
 import android.view.Display;
-import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
-import android.view.animation.Animation;
-import android.view.animation.BounceInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hugh.tests.R;
-import com.example.hugh.tests.Views.DialogPopupWindow;
 
 public class RobotActivity extends AppCompatActivity {
 
@@ -213,7 +205,7 @@ public class RobotActivity extends AppCompatActivity {
                             }
                         });
                         tv_dialog.setVisibility(View.VISIBLE);
-                        tv_dialog.setText(Html.fromHtml("你敢"+"<a href=\"urlscheme://auth_activity\">点我试试</a>"+"吗？"));//
+                        tv_dialog.setText(Html.fromHtml("你敢"+"<a href=\"url_scheme://house_plan_activity\">点我试试</a>"+"吗？"));//
                         tv_dialog.setMovementMethod(LinkMovementMethod.getInstance());
                     }
 
@@ -252,10 +244,10 @@ public class RobotActivity extends AppCompatActivity {
         AnimatorSet animatorSet = new AnimatorSet();
         Interpolator accelerateInterpolator = new AccelerateInterpolator();
         final ObjectAnimator rotation = ObjectAnimator
-                .ofFloat(iv_right, "translationX", 0.0F, -widthPixels /2 + iv_right.getWidth()/2)
+                .ofFloat(iv_right, "translationX", 0.0F, -widthPixels/2 + iv_right.getWidth()/2)
                 .setDuration(500);
         final ObjectAnimator rotation1 = ObjectAnimator
-                .ofFloat(iv_right, "translationY", 0.0F, heightPixels /2 - iv_right.getHeight()*2)
+                .ofFloat(iv_right, "translationY", 0.0F, heightPixels/2 - iv_right.getHeight()*2)
                 .setDuration(500);
         rotation1.setInterpolator(accelerateInterpolator);
         animatorSet.playTogether(rotation,rotation1);

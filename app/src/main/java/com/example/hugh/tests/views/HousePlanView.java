@@ -1,9 +1,6 @@
-package com.example.hugh.tests.Views;
+package com.example.hugh.tests.views;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -13,6 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.hugh.tests.R;
+import com.example.hugh.tests.activity.TagDeleteCallback;
+import com.example.hugh.tests.activity.TagRecyclingCallback;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ import java.util.HashMap;
  *
  */
 
-public class HousePlanView extends ViewGroup {
+public class HousePlanView extends ViewGroup{
 
     private Context mContext;
     private int mMode = 0;
@@ -33,8 +33,10 @@ public class HousePlanView extends ViewGroup {
     ArrayList<HashMap> mHomeTagList = new ArrayList<>();
     final float TAG_WIDTH_SCALE = 6.0F;
     final float TAG_HEIGHT_SCALE = 5.0F;
-    private OnRoomClickListener onRoomClickListener;
     private Rect rectTag;
+    private OnTagClickListener onTagClickListener;
+    private OnTagDeleteListener onTagDeleteListener;
+    private OnTagRecyclingListener onTagRecyclingListener;
 
     public HousePlanView(Context context) {
         super(context);
@@ -94,7 +96,18 @@ public class HousePlanView extends ViewGroup {
                         View child = getChildAt(i);
                         Rect deleteRect = new Rect(child.getRight()-30, child.getTop(), child.getRight(), child.getTop()+30);
                         if (deleteRect.contains(x1,y1)){
-                            removeViewAt(i);
+                            TagDeleteCallback tagDeleteCallback = new TagDeleteCallback() {
+                                @Override
+                                public void onConfirm(View view) {
+                                    removeView(view);
+                                }
+
+                                @Override
+                                public void onCancel() {
+
+                                }
+                            };
+                            onTagDeleteListener.OnTagDelete(child,tagDeleteCallback);
                             break;
                         }
                     }
@@ -143,11 +156,26 @@ public class HousePlanView extends ViewGroup {
                         if (this.rect.contains(rect1)){
                             View childAt = getChildAt(mSelectedView);
                             // to update tag's position
-                            childAt.layout(
-                                    getChildAt(mSelectedView).getLeft() + offsetX,
+                            childAt.layout(getChildAt(mSelectedView).getLeft() + offsetX,
                                     getChildAt(mSelectedView).getTop() + offsetY,
                                     getChildAt(mSelectedView).getRight() + offsetX,
                                     getChildAt(mSelectedView).getBottom() + offsetY);
+                            int bottom = rect.bottom - 5;
+                            if (childAt.getBottom() >= bottom){
+                                TagRecyclingCallback tagRecyclingCallback = new TagRecyclingCallback() {
+                                    @Override
+                                    public void onConfirm(View view) {
+                                        removeViewAt(mSelectedView);
+                                        mSelectedView = -1;
+                                    }
+
+                                    @Override
+                                    public void onCancel() {
+
+                                    }
+                                };
+                                onTagRecyclingListener.OnTagRecycling(childAt,tagRecyclingCallback);
+                            }
                         }
                         lastX = x;
                         lastY = y;
@@ -158,7 +186,7 @@ public class HousePlanView extends ViewGroup {
                 int xUp = (int) event.getX();
                 int yUp = (int) event.getY();
                 if (mMode != 0 && rectTag.contains(xUp,yUp) && mSelectedView != -1){
-                    onRoomClickListener.onRoomClick(getChildAt(mSelectedView));
+                    onTagClickListener.onTagClick(getChildAt(mSelectedView));
                 }
                 mSelectedView = -1;
                 break;
@@ -166,12 +194,28 @@ public class HousePlanView extends ViewGroup {
         return true;
     }
 
-    public interface OnRoomClickListener{
-        void onRoomClick(View view);
+    public interface OnTagClickListener{
+        void onTagClick(View view);
     }
 
-    public void setOnRoomClickListener(OnRoomClickListener onRoomClickListener){
-        this.onRoomClickListener = onRoomClickListener;
+    public void setOnTagClickListener(OnTagClickListener onTagClickListener){
+        this.onTagClickListener = onTagClickListener;
+    }
+
+    public interface OnTagDeleteListener{
+        void OnTagDelete(View view, TagDeleteCallback tagDeleteCallback);
+    }
+
+    public void setOnTagDeleteListener(OnTagDeleteListener onTagDeleteListener){
+        this.onTagDeleteListener = onTagDeleteListener;
+    }
+
+    public interface OnTagRecyclingListener{
+        void OnTagRecycling(View view, TagRecyclingCallback tagRecyclingCallback);
+    }
+
+    public void setOnTagRecyclingListener(OnTagRecyclingListener onTagRecyclingListener){
+        this.onTagRecyclingListener = onTagRecyclingListener;
     }
 
     public void addRoom(String name,double xScale,double yScale){

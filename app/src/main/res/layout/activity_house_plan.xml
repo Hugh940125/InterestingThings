@@ -6,27 +6,12 @@
     android:orientation="vertical"
     tools:context="com.example.hugh.tests.activity.HousePlanActivity">
 
-    <com.example.hugh.tests.Views.HousePlanView
+    <com.example.hugh.tests.views.HousePlanView
         android:layout_width="match_parent"
         android:background="@mipmap/ic_launcher"
         android:layout_height="200dp"
         android:id="@+id/hpv">
-
-        <!--<TextView
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:text="卧室"
-            android:gravity="center"
-            android:background="@color/colorAccent"/>
-
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:text="卧室"
-            android:gravity="center"
-            android:background="@color/colorAccent"/>-->
-
-    </com.example.hugh.tests.Views.HousePlanView>
+    </com.example.hugh.tests.views.HousePlanView>
 
     <Button
         android:layout_width="match_parent"

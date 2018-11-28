@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/StudyTests.iml" filepath="$PROJECT_DIR$/StudyTests.iml" />
       <module fileurl="file://G:\KownledgeBase\StudyTests\Tests.iml" filepath="G:\KownledgeBase\StudyTests\Tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://G:\KownledgeBase\StudyTests\mouble_b\bmouble.iml" filepath="G:\KownledgeBase\StudyTests\mouble_b\bmouble.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mouble_b/mouble_b.iml" filepath="$PROJECT_DIR$/mouble_b/mouble_b.iml" />
     </modules>
   </component>
 </project>

@@ -1,4 +1,4 @@
-package com.example.hugh.tests.Views;
+package com.example.hugh.tests.views;
 
 import android.content.Context;
 import android.graphics.Canvas;

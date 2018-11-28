@@ -1,26 +1,26 @@
 package com.example.hugh.tests.activity;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hugh.tests.R;
-import com.example.hugh.tests.Views.CustomTextView;
-import com.example.hugh.tests.Views.HousePlanView;
+import com.example.hugh.tests.views.HousePlanView;
 
-public class HousePlanActivity extends AppCompatActivity implements HousePlanView.OnRoomClickListener{
+public class HousePlanActivity extends AppCompatActivity implements HousePlanView.OnTagClickListener,HousePlanView.OnTagDeleteListener,HousePlanView.OnTagRecyclingListener{
 
     private int mode;
+    private AlertDialog show;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scroll);
+        setContentView(R.layout.activity_house_plan);
         final HousePlanView hpv = findViewById(R.id.hpv);
         Button bedroom = findViewById(R.id.bedroom);
         Button living_room = findViewById(R.id.living_room);
@@ -64,7 +64,9 @@ public class HousePlanActivity extends AppCompatActivity implements HousePlanVie
             }
         });
 
-        hpv.setOnRoomClickListener(this);
+        hpv.setOnTagClickListener(this);
+        hpv.setOnTagDeleteListener(this);
+        hpv.setOnTagRecyclingListener(this);
 
         /*CustomTextView customTextView = new CustomTextView(this);
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100);
@@ -79,8 +81,35 @@ public class HousePlanActivity extends AppCompatActivity implements HousePlanVie
     }
 
     @Override
-    public void onRoomClick(View view) {
+    public void onTagClick(View view) {
         String text = ((TextView) view).getText().toString();
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void OnTagDelete(final View view, final TagDeleteCallback tagDeleteCallback) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("是否删除？");
+        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                tagDeleteCallback.onConfirm(view);
+                show.dismiss();
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                tagDeleteCallback.onCancel();
+                show.dismiss();
+            }
+        });
+        show = builder.create();
+        show.show();
+    }
+
+    @Override
+    public void OnTagRecycling(View view, TagRecyclingCallback tagRecyclingCallback) {
+        tagRecyclingCallback.onConfirm(view);
     }
 }
