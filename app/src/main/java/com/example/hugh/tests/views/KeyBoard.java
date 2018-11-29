@@ -38,6 +38,7 @@ public class KeyBoard extends View {
     private Paint mRegionPaint;
     private Key mClickedKey;
     private Context mContext;
+    private OnTextUpdateListener onTextUpdateListener;
 
     public KeyBoard(Context context) {
         super(context);
@@ -207,12 +208,23 @@ public class KeyBoard extends View {
                     if (!mClickedKey.region.contains(xUp,yUp)){
                         mClickedKey = null;
                     }else {
-                        Toast.makeText(mContext, mClickedKey.text, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(mContext, mClickedKey.text, Toast.LENGTH_SHORT).show();
+                        if (onTextUpdateListener != null){
+                            onTextUpdateListener.OnTextUpdate(mClickedKey.text);
+                        }
                     }
                 }
                 break;
         }
         return true;
+    }
+
+    public interface OnTextUpdateListener{
+        void OnTextUpdate(String text);
+    }
+
+    public void addOnTextUpdateListener(OnTextUpdateListener onTextUpdateListener){
+        this.onTextUpdateListener = onTextUpdateListener;
     }
 
     public static class Key{
