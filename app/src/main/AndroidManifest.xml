@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.hugh.tests">
+    package="com.example.hugh.interesting">
 
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -21,8 +21,8 @@
             </intent-filter>
             <!-- 固定屏幕的方向，处理键盘滑出事件，防止activity关闭或者重启 -->
         </activity>
-        <activity android:name=".activity.SVGActivity"></activity>
-        <activity android:name=".activity.HousePlanActivity">
+        <activity android:name=".activity.SVGActivity" />
+        <activity android:name=".house_plan.HousePlanActivity">
             <intent-filter> <!-- URL Scheme启动 -->
                 <!-- 必有项 -->
                 <action android:name="android.intent.action.VIEW" />
@@ -40,8 +40,9 @@
                 <category android:name="emms.intent.category.authorization" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.RobotActivity"></activity>
-        <activity android:name=".activity.KeyBoardActivity"></activity>
+        <activity android:name=".activity.RobotActivity" />
+        <activity android:name=".keyboard.KeyBoardActivity" />
+        <activity android:name=".red_point.RedPointActivity"></activity>
     </application>
 
 </manifest>

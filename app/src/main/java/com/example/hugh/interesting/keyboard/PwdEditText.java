@@ -1,4 +1,4 @@
-package com.example.hugh.tests.views;
+package com.example.hugh.interesting.keyboard;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
-import com.example.hugh.tests.utils.DensityUtil;
+import com.example.hugh.interesting.utils.DensityUtil;
 
 import java.util.ArrayList;
 
@@ -26,7 +26,7 @@ public class PwdEditText extends View {
 
     private Paint mFramePaint;
     private Paint mDividerPaint;
-    ArrayList<String> buffer = new ArrayList();
+    ArrayList<String> buffer = new ArrayList<>();
     private OnPwdCompleteListener onPwdCompleteListener;
     private Context mContext;
 
@@ -96,7 +96,7 @@ public class PwdEditText extends View {
                 }
             }
             if (buffer.size() == 6){
-                //onPwdCompleteListener.onPwdComplete();
+                onPwdCompleteListener.onPwdComplete();
                 executionAnimation();
                 Vibrator vibrator = (Vibrator)mContext.getSystemService(Context.VIBRATOR_SERVICE);
                 if (vibrator != null) {
@@ -111,7 +111,7 @@ public class PwdEditText extends View {
         ObjectAnimator translationX = ObjectAnimator.ofFloat(this, "translationX", 0.0F, 10.0F, -10.0F, 0.0F);
         AccelerateDecelerateInterpolator accelerateDecelerateInterpolator = new AccelerateDecelerateInterpolator();
         translationX.setInterpolator(accelerateDecelerateInterpolator);
-        translationX.setDuration(500);
+        translationX.setDuration(200);
         translationX.start();
     }
 

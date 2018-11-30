@@ -1,4 +1,4 @@
-package com.example.hugh.tests.activity;
+package com.example.hugh.interesting.house_plan;
 
 import android.view.View;
 

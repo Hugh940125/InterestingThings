@@ -1,12 +1,9 @@
-package com.example.hugh.tests.activity;
+package com.example.hugh.interesting.keyboard;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 
-import com.example.hugh.tests.R;
-import com.example.hugh.tests.views.KeyBoard;
-import com.example.hugh.tests.views.PwdEditText;
+import com.example.hugh.interesting.R;
 
 public class KeyBoardActivity extends AppCompatActivity {
 

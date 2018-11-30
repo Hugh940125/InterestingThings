@@ -1,4 +1,4 @@
-package com.example.hugh.tests.views;
+package com.example.hugh.interesting.keyboard;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -6,17 +6,15 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
-import com.example.hugh.tests.R;
-import com.example.hugh.tests.utils.DensityUtil;
+import com.example.hugh.interesting.R;
+import com.example.hugh.interesting.utils.DensityUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;

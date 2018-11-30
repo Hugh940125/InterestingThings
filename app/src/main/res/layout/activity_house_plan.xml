@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.hugh.tests.activity.HousePlanActivity">
+    tools:context="com.example.hugh.interesting.house_plan.HousePlanActivity">
 
-    <com.example.hugh.tests.views.HousePlanView
+    <com.example.hugh.interesting.house_plan.HousePlanView
         android:layout_width="match_parent"
         android:background="@mipmap/ic_launcher"
         android:layout_height="200dp"
         android:id="@+id/hpv">
-    </com.example.hugh.tests.views.HousePlanView>
+    </com.example.hugh.interesting.house_plan.HousePlanView>
 
     <Button
         android:layout_width="match_parent"

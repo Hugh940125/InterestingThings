@@ -1,4 +1,4 @@
-package com.example.hugh.tests.activity;
+package com.example.hugh.interesting.house_plan;
 
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
@@ -9,8 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hugh.tests.R;
-import com.example.hugh.tests.views.HousePlanView;
+import com.example.hugh.interesting.R;
 
 public class HousePlanActivity extends AppCompatActivity implements HousePlanView.OnTagClickListener,HousePlanView.OnTagDeleteListener,HousePlanView.OnTagRecyclingListener{
 

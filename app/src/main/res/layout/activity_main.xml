@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hugh.tests.activity.MainActivity">
+    tools:context="com.example.hugh.interesting.activity.MainActivity">
 
     <TextView
         android:transitionName="share"
@@ -63,6 +63,12 @@
         android:layout_height="wrap_content"
         android:text="keyboard"
         android:id="@+id/keyboard"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="redPoint"
+        android:id="@+id/red_point"/>
 
 </LinearLayout>
 </ScrollView>

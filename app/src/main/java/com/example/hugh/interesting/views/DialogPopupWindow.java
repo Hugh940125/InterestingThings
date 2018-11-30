@@ -1,4 +1,4 @@
-package com.example.hugh.tests.views;
+package com.example.hugh.interesting.views;
 
 /**
  * Created by Hugh on 2018/11/16.
@@ -14,7 +14,7 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.PopupWindow;
 
-import com.example.hugh.tests.R;
+import com.example.hugh.interesting.R;
 
 /**
  * 从底部弹出或滑出选择菜单或窗口

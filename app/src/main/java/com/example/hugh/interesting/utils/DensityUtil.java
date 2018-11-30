@@ -1,7 +1,6 @@
-package com.example.hugh.tests.utils;
+package com.example.hugh.interesting.utils;
 
 import android.content.res.Resources;
-import android.util.DisplayMetrics;
 
 /**
  * Created by Hugh on 2018/11/26.

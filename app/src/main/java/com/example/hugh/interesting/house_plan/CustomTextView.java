@@ -1,4 +1,4 @@
-package com.example.hugh.tests.views;
+package com.example.hugh.interesting.house_plan;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import com.example.hugh.tests.R;
+import com.example.hugh.interesting.R;
 
 /**
  * Created by Hugh on 2018/11/8.

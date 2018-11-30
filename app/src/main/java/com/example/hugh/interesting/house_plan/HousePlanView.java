@@ -1,4 +1,4 @@
-package com.example.hugh.tests.views;
+package com.example.hugh.interesting.house_plan;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -9,9 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.example.hugh.tests.R;
-import com.example.hugh.tests.activity.TagDeleteCallback;
-import com.example.hugh.tests.activity.TagRecyclingCallback;
+import com.example.hugh.interesting.R;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

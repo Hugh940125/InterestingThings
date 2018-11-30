@@ -1,4 +1,4 @@
-package com.example.hugh.tests.activity;
+package com.example.hugh.interesting.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -20,7 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.hugh.tests.R;
+import com.example.hugh.interesting.R;
 
 public class RobotActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.hugh.tests.activity;
+package com.example.hugh.interesting.activity;
 
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
@@ -9,7 +9,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 
-import com.example.hugh.tests.R;
+import com.example.hugh.interesting.R;
 
 public class SVGActivity extends AppCompatActivity {
 

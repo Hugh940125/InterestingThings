@@ -1,4 +1,4 @@
-package com.example.hugh.tests.activity;
+package com.example.hugh.interesting.activity;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -11,7 +11,10 @@ import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.example.hugh.tests.R;
+import com.example.hugh.interesting.R;
+import com.example.hugh.interesting.house_plan.HousePlanActivity;
+import com.example.hugh.interesting.keyboard.KeyBoardActivity;
+import com.example.hugh.interesting.red_point.RedPointActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         Button house_plan = findViewById(R.id.house_plan);
         Button scheme = findViewById(R.id.scheme);
         Button keyboard = findViewById(R.id.keyboard);
+        Button red_point = findViewById(R.id.red_point);
 
         scheme.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(mActivity,KeyBoardActivity.class));
+            }
+        });
+
+        red_point.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mActivity,RedPointActivity.class));
             }
         });
 
