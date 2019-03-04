@@ -24,6 +24,13 @@ public class HousePlanActivity extends AppCompatActivity implements HousePlanVie
         Button bedroom = findViewById(R.id.bedroom);
         Button living_room = findViewById(R.id.living_room);
         Button save = findViewById(R.id.save);
+        Button bt_1 = findViewById(R.id.bt_1);
+        bt_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HousePlanActivity.this, "haha", Toast.LENGTH_SHORT).show();
+            }
+        });
         final Button bt_switch = findViewById(R.id.bt_switch);
 
         bt_switch.setOnClickListener(new View.OnClickListener() {

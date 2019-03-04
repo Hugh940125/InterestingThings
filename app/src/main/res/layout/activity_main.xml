@@ -70,5 +70,28 @@
         android:text="redPoint"
         android:id="@+id/red_point"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="animation imageView"
+        android:id="@+id/animation_image_view"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="view binder"
+        android:id="@+id/view_binder"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Coordinator"
+        android:id="@+id/coordinator"/>
+    
+    <com.example.hugh.interesting.views.TagView
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"/>
+
 </LinearLayout>
 </ScrollView>

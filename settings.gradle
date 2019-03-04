@@ -1,1 +1,1 @@
-include ':app', ':mouble_b'
+include ':app', ':module_b', ':annotator', ':compiler', ':view_bind_api'

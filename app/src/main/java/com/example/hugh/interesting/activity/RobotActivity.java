@@ -3,12 +3,14 @@ package com.example.hugh.interesting.activity;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.DisplayMetrics;
 import android.view.Display;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
@@ -21,6 +23,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.hugh.interesting.R;
+import com.example.hugh.interesting.views.VoiceView;
+
+import java.util.ArrayList;
 
 public class RobotActivity extends AppCompatActivity {
 
@@ -34,6 +39,13 @@ public class RobotActivity extends AppCompatActivity {
     private LinearLayout root;
     private RelativeLayout rl_content;
     private ImageView iv_cancel;
+    private int lastX;
+    private int lastY;
+    private Rect mFullRect;
+    private Rect mEggRect;
+    private boolean contains;
+    private View rl_root;
+    private VoiceView voice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +59,86 @@ public class RobotActivity extends AppCompatActivity {
         tv_dialog = findViewById(R.id.tv_dialog);
         root = findViewById(R.id.root);
         rl_content = findViewById(R.id.rl_content);
-        rl_content.setOnClickListener(new View.OnClickListener() {
+        rl_root = findViewById(R.id.rl_root);
+        /*rl_content.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
-        });
+        });*/
         iv_cancel = findViewById(R.id.iv_cancel);
+        voice = findViewById(R.id.voice);
+
+        voice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final ArrayList<Integer> items1 = new ArrayList<>();
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                items1.add((int) (Math.random()*20));
+                voice.addData(items1);
+            }
+        });
 
         WindowManager windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         if (windowManager != null) {
@@ -96,7 +181,7 @@ public class RobotActivity extends AppCompatActivity {
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         rl_content.setVisibility(View.INVISIBLE);
-                        iv.setOnClickListener(new View.OnClickListener() {
+                        /*iv.setOnClickListener(new View.OnClickListener() {
 
                             @Override
                             public void onClick(View v) {
@@ -148,7 +233,7 @@ public class RobotActivity extends AppCompatActivity {
                                 });
                                 animatorSet.start();
                             }
-                        });
+                        });*/
                     }
 
                     @Override
@@ -165,7 +250,7 @@ public class RobotActivity extends AppCompatActivity {
             }
         });
 
-        iv.setOnClickListener(new View.OnClickListener() {
+        /*iv.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -221,7 +306,7 @@ public class RobotActivity extends AppCompatActivity {
                 });
                 animatorSet.start();
             }
-        });
+        });*/
 
         bt_1.setOnClickListener(new View.OnClickListener() {
             @Override

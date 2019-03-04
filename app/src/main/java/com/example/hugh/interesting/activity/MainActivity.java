@@ -11,10 +11,13 @@ import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.example.hugh.interesting.CoordinatorLayout.CoordinatorActivity;
 import com.example.hugh.interesting.R;
+import com.example.hugh.interesting.anim.AnimActivity;
 import com.example.hugh.interesting.house_plan.HousePlanActivity;
 import com.example.hugh.interesting.keyboard.KeyBoardActivity;
 import com.example.hugh.interesting.red_point.RedPointActivity;
+import com.example.hugh.interesting.view_binder.ViewBinderTestActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +40,30 @@ public class MainActivity extends AppCompatActivity {
         Button scheme = findViewById(R.id.scheme);
         Button keyboard = findViewById(R.id.keyboard);
         Button red_point = findViewById(R.id.red_point);
+        Button animation_image_view = findViewById(R.id.animation_image_view);
+        Button view_binder = findViewById(R.id.view_binder);
+        Button coordinator = findViewById(R.id.coordinator);
+
+        coordinator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mActivity,CoordinatorActivity.class));
+            }
+        });
+
+        view_binder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mActivity,ViewBinderTestActivity.class));
+            }
+        });
+
+        animation_image_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mActivity,AnimActivity.class));
+            }
+        });
 
         scheme.setOnClickListener(new View.OnClickListener() {
             @Override

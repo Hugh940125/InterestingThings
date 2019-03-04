@@ -6,8 +6,15 @@
     tools:context="com.example.hugh.interesting.activity.RobotActivity">
 
     <RelativeLayout
+        android:id="@+id/rl_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <com.example.hugh.interesting.views.VoiceView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/voice">
+        </com.example.hugh.interesting.views.VoiceView>
 
         <LinearLayout
             android:id="@+id/root"

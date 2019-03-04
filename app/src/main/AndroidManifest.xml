@@ -42,7 +42,13 @@
         </activity>
         <activity android:name=".activity.RobotActivity" />
         <activity android:name=".keyboard.KeyBoardActivity" />
-        <activity android:name=".red_point.RedPointActivity"></activity>
+        <activity android:name=".red_point.RedPointActivity" />
+        <activity android:name=".activity.ActivityForTestRobotView" />
+        <activity android:name=".anim.AnimActivity" />
+        <activity android:name=".sliding_conflict.SlidingConflictActivity" />
+        <activity android:name=".dl.DLActivity" />
+        <activity android:name=".view_binder.ViewBinderTestActivity" />
+        <activity android:name=".CoordinatorLayout.CoordinatorActivity"></activity>
     </application>
 
 </manifest>
