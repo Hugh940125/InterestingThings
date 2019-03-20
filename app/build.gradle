@@ -1,11 +1,14 @@
 apply plugin: 'com.android.application'
+//GreenDao
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 27
     buildToolsVersion "27.0.1"
 
     defaultConfig {
-        applicationId "com.example.hugh.tests"
+        applicationId "com.example.hugh.interesting"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
@@ -35,6 +38,13 @@ android {
         exclude 'META-INF/notice.txt'
         exclude 'META-INF/INDEX.LIST'
     }
+
+    //GreenDao的依赖
+    greendao {
+        schemaVersion 1 //数据库版本号
+        daoPackage 'com.example.hugh.interesting.GreenDao.db'// 设置DaoMaster、DaoSession、Dao 包名
+        targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
+    }
 }
 
 dependencies {
@@ -54,4 +64,8 @@ dependencies {
     compile project(':view_bind_api')
     annotationProcessor project(':compiler')
     compile project(':annotator')
+
+    //GreenDao的依赖
+    compile 'org.greenrobot:greendao:3.2.2' // add library
+    compile 'net.zetetic:android-database-sqlcipher:3.5.6'//加密库依赖（可选项）
 }

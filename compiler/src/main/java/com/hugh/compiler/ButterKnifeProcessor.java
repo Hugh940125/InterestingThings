@@ -36,6 +36,7 @@ public class ButterKnifeProcessor extends AbstractProcessor {
     public Set<String> getSupportedAnnotationTypes() {
         Set<String> annotationTypes = new LinkedHashSet<>();
         annotationTypes.add(CompileBindView.class.getCanonicalName());
+        annotationTypes.add(CompileOnClick.class.getCanonicalName());
         return annotationTypes;
     }
 

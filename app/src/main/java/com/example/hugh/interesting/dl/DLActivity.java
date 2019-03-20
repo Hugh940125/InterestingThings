@@ -1,11 +1,10 @@
 package com.example.hugh.interesting.dl;
 
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.hugh.interesting.R;
-import com.example.hugh.interesting.base.BaseActivity;
+import com.example.hugh.interesting.Base.BaseActivity;
 
 import org.deeplearning4j.nn.conf.layers.DenseLayer;
 import org.deeplearning4j.nn.conf.layers.OutputLayer;

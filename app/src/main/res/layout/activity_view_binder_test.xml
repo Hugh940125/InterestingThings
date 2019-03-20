@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.hugh.interesting.view_binder.ViewBinderTestActivity">
+    tools:context="com.example.hugh.interesting.ViewBinder.ViewBinderTestActivity">
 
     <TextView
         android:gravity="center"

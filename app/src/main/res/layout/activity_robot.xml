@@ -3,18 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.example.hugh.interesting.activity.RobotActivity">
+    tools:context="com.example.hugh.interesting.Activity.RobotActivity">
 
     <RelativeLayout
         android:id="@+id/rl_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.example.hugh.interesting.views.VoiceView
+        <com.example.hugh.interesting.Views.VoiceView
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:id="@+id/voice">
-        </com.example.hugh.interesting.views.VoiceView>
+        </com.example.hugh.interesting.Views.VoiceView>
 
         <LinearLayout
             android:id="@+id/root"

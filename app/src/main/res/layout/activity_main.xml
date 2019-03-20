@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hugh.interesting.activity.MainActivity">
+    tools:context="com.example.hugh.interesting.Activity.MainActivity">
 
     <TextView
         android:transitionName="share"
@@ -87,8 +87,26 @@
         android:layout_height="wrap_content"
         android:text="Coordinator"
         android:id="@+id/coordinator"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GreenDao"
+        android:id="@+id/green_dao"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HyperLink"
+        android:id="@+id/hyper_link"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SeekBar"
+        android:id="@+id/SeekBar"/>
     
-    <com.example.hugh.interesting.views.TagView
+    <com.example.hugh.interesting.Views.TagView
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_gravity="center"/>

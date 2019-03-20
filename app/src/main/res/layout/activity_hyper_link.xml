@@ -3,10 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hugh.interesting.RedPoint.RedPointActivity">
+    tools:context="com.example.hugh.interesting.HyperLink.HyperLinkActivity">
 
-    <com.example.hugh.interesting.RedPoint.RedPoint
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="50dp"
+        android:id="@+id/hyperLink"/>
 
 </LinearLayout>

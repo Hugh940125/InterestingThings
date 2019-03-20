@@ -8,7 +8,8 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://G:\KownledgeBase\StudyTests\mouble_b\bmouble.iml" filepath="G:\KownledgeBase\StudyTests\mouble_b\bmouble.iml" />
       <module fileurl="file://$PROJECT_DIR$/compiler/compiler.iml" filepath="$PROJECT_DIR$/compiler/compiler.iml" />
-      <module fileurl="file://$PROJECT_DIR$/module_b/mouble_b.iml" filepath="$PROJECT_DIR$/module_b/mouble_b.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_b/module_b.iml" filepath="$PROJECT_DIR$/module_b/module_b.iml" />
+      <module fileurl="file://G:\KownledgeBase\StudyTests\module_b\mouble_b.iml" filepath="G:\KownledgeBase\StudyTests\module_b\mouble_b.iml" />
       <module fileurl="file://$PROJECT_DIR$/view_bind_api/view_bind_api.iml" filepath="$PROJECT_DIR$/view_bind_api/view_bind_api.iml" />
     </modules>
   </component>

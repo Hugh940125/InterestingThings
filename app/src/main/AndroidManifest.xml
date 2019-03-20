@@ -5,13 +5,14 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
+        android:name=".Application.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".Activity.MainActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -21,8 +22,8 @@
             </intent-filter>
             <!-- 固定屏幕的方向，处理键盘滑出事件，防止activity关闭或者重启 -->
         </activity>
-        <activity android:name=".activity.SVGActivity" />
-        <activity android:name=".house_plan.HousePlanActivity">
+        <activity android:name=".Activity.SVGActivity" />
+        <activity android:name=".HousePlan.HousePlanActivity">
             <intent-filter> <!-- URL Scheme启动 -->
                 <!-- 必有项 -->
                 <action android:name="android.intent.action.VIEW" />
@@ -40,15 +41,18 @@
                 <category android:name="emms.intent.category.authorization" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.RobotActivity" />
-        <activity android:name=".keyboard.KeyBoardActivity" />
-        <activity android:name=".red_point.RedPointActivity" />
-        <activity android:name=".activity.ActivityForTestRobotView" />
-        <activity android:name=".anim.AnimActivity" />
-        <activity android:name=".sliding_conflict.SlidingConflictActivity" />
+        <activity android:name=".Activity.RobotActivity" />
+        <activity android:name=".Keyboard.KeyBoardActivity" />
+        <activity android:name=".RedPoint.RedPointActivity" />
+        <activity android:name=".Activity.ActivityForTestRobotView" />
+        <activity android:name=".Anim.AnimActivity" />
+        <activity android:name=".SlidingConflict.SlidingConflictActivity" />
         <activity android:name=".dl.DLActivity" />
-        <activity android:name=".view_binder.ViewBinderTestActivity" />
-        <activity android:name=".CoordinatorLayout.CoordinatorActivity"></activity>
+        <activity android:name=".ViewBinder.ViewBinderTestActivity" />
+        <activity android:name=".CoordinatorLayout.CoordinatorActivity" />
+        <activity android:name=".GreenDao.GreenDaoActivity" />
+        <activity android:name=".HyperLink.HyperLinkActivity" />
+        <activity android:name=".Customize.SeekBarActivity"></activity>
     </application>
 
 </manifest>
