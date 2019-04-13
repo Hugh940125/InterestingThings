@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.hugh.interesting.HousePlan.HousePlanActivity">
+    tools:context=".CustomizeViews.HousePlan.HousePlanActivity">
 
     <Button
         android:layout_width="wrap_content"
@@ -13,12 +13,12 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/bt_1"/>
 
-    <com.example.hugh.interesting.HousePlan.HousePlanView
+    <com.example.hugh.interesting.CustomizeViews.HousePlan.HousePlanView
         android:layout_width="match_parent"
         android:background="@mipmap/ic_launcher"
         android:layout_height="200dp"
         android:id="@+id/hpv">
-    </com.example.hugh.interesting.HousePlan.HousePlanView>
+    </com.example.hugh.interesting.CustomizeViews.HousePlan.HousePlanView>
 
     <Button
         android:layout_below="@id/hpv"

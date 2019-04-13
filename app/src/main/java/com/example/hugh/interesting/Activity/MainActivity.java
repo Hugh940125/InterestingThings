@@ -9,18 +9,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.hugh.interesting.CoordinatorLayout.CoordinatorActivity;
-import com.example.hugh.interesting.Customize.SeekBarActivity;
+import com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.SeekBarActivity;
+import com.example.hugh.interesting.CustomizeViews.EggRobot.RobotActivity;
+import com.example.hugh.interesting.CustomizeViews.GraphicLock.GraphicLockActivity;
 import com.example.hugh.interesting.GreenDao.GreenDaoActivity;
 import com.example.hugh.interesting.HyperLink.HyperLinkActivity;
 import com.example.hugh.interesting.R;
 import com.example.hugh.interesting.Anim.AnimActivity;
-import com.example.hugh.interesting.HousePlan.HousePlanActivity;
-import com.example.hugh.interesting.Keyboard.KeyBoardActivity;
-import com.example.hugh.interesting.RedPoint.RedPointActivity;
+import com.example.hugh.interesting.CustomizeViews.HousePlan.HousePlanActivity;
+import com.example.hugh.interesting.CustomizeViews.Keyboard.KeyBoardActivity;
+import com.example.hugh.interesting.CustomizeViews.SmallRedPoint.RedPointActivity;
+import com.example.hugh.interesting.Thread.ThreadCollaboration.ThreadActivity;
 import com.example.hugh.interesting.ViewBinder.ViewBinderTestActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,6 +52,22 @@ public class MainActivity extends AppCompatActivity {
         Button green_dao = findViewById(R.id.green_dao);
         Button hyper_link = findViewById(R.id.hyper_link);
         Button SeekBar = findViewById(R.id.SeekBar);
+        Button graphicLock = findViewById(R.id.graphicLock);
+        Button thread = findViewById(R.id.thread);
+
+        thread.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mActivity,ThreadActivity.class));
+            }
+        });
+
+        graphicLock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mActivity,GraphicLockActivity.class));
+            }
+        });
 
         SeekBar.setOnClickListener(new View.OnClickListener() {
             @Override

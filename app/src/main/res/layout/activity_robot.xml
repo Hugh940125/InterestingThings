@@ -1,99 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context="com.example.hugh.interesting.Activity.RobotActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <RelativeLayout
-        android:id="@+id/rl_root"
+    <com.example.hugh.interesting.CustomizeViews.EggRobot.RobotView
+        android:id="@+id/rv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:visibility="visible" >
+    </com.example.hugh.interesting.CustomizeViews.EggRobot.RobotView>
 
-        <com.example.hugh.interesting.Views.VoiceView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:id="@+id/voice">
-        </com.example.hugh.interesting.Views.VoiceView>
-
-        <LinearLayout
-            android:id="@+id/root"
-            android:gravity="bottom"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/bt_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="按键1"/>
-
-            <Button
-                android:id="@+id/bt_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="按键2"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="按键3"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="按键4"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="按键5"/>
-        </LinearLayout>
-
-        <RelativeLayout
-            android:visibility="invisible"
-            android:layout_alignParentBottom="true"
-            android:id="@+id/rl_content"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@android:color/darker_gray">
-
-            <ImageView
-                android:id="@+id/iv_cancel"
-                android:layout_alignParentEnd="true"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@mipmap/ic_launcher"/>
-
-        </RelativeLayout>
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/tv_dialog"
-        android:layout_marginBottom="70dp"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="大家好，我是小冶" />
-
-    <ImageView
-        android:visibility="gone"
-        android:id="@+id/iv_right"
-        android:layout_gravity="end|center_vertical"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@mipmap/ic_launcher"/>
-
-    <ImageView
-        android:stateListAnimator="@null"
-        android:visibility="gone"
-        android:id="@+id/iv"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="20dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@mipmap/ic_launcher"/>
-
-</FrameLayout>
+</RelativeLayout>

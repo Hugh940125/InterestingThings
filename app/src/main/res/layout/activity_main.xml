@@ -105,8 +105,20 @@
         android:layout_height="wrap_content"
         android:text="SeekBar"
         android:id="@+id/SeekBar"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="graphicLock"
+        android:id="@+id/graphicLock"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thread"
+        android:id="@+id/thread"/>
     
-    <com.example.hugh.interesting.Views.TagView
+    <com.example.hugh.interesting.CustomizeViews.HousePlan.TagView
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:layout_gravity="center"/>

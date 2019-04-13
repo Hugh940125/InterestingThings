@@ -55,17 +55,20 @@ dependencies {
     compile project(':module_b')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     implementation 'com.jakewharton:butterknife:8.4.0'
-    compile 'org.deeplearning4j:deeplearning4j-core:0.7.2'
-    compile 'org.nd4j:nd4j-native:0.7.2'
-    //compile 'org.nd4j:nd4j-native:0.7.2:android-x86'
-    compile 'org.nd4j:nd4j-native:0.7.2:android-arm'
-    implementation project(':annotator')
     implementation 'com.android.support:design:27.1.1'
+    //编译时注解相关
     compile project(':view_bind_api')
     annotationProcessor project(':compiler')
     compile project(':annotator')
-
     //GreenDao的依赖
     compile 'org.greenrobot:greendao:3.2.2' // add library
     compile 'net.zetetic:android-database-sqlcipher:3.5.6'//加密库依赖（可选项）
+    //Retrofit相关
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.alibaba:fastjson:1.2.55'
+    //RxJava相关
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
 }

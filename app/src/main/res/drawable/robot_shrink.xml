@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+    <item android:drawable="@drawable/robot_telescopic_025" android:duration="80" />
+    <!--<item android:drawable="@drawable/robot_telescopic_024" android:duration="40" />-->
+    <item android:drawable="@drawable/robot_telescopic_023" android:duration="80" />
+    <!--<item android:drawable="@drawable/robot_telescopic_022" android:duration="40" />-->
+    <item android:drawable="@drawable/robot_telescopic_021" android:duration="80" />
+    <!--<item android:drawable="@drawable/robot_telescopic_020" android:duration="40" />-->
+    <item android:drawable="@drawable/robot_telescopic_019" android:duration="80" />
+    <!--<item android:drawable="@drawable/robot_telescopic_018" android:duration="40" />-->
+    <item android:drawable="@drawable/robot_telescopic_017" android:duration="80" />
+    <!--<item android:drawable="@drawable/robot_telescopic_016" android:duration="40" />-->
+    <item android:drawable="@drawable/robot_telescopic_015" android:duration="80" />
+    <!--<item android:drawable="@drawable/robot_telescopic_014" android:duration="40" />-->
+    <item android:drawable="@drawable/robot_telescopic_013" android:duration="80" />
+    <!--<item android:drawable="@drawable/robot_telescopic_012" android:duration="40" />-->
+    <item android:drawable="@drawable/robot_telescopic_011" android:duration="80" />
+    <!--<item android:drawable="@drawable/robot_telescopic_010" android:duration="40" />-->
+    <item android:drawable="@drawable/robot_telescopic_009" android:duration="80" />
+    <!--<item android:drawable="@drawable/robot_telescopic_008" android:duration="40" />-->
+    <item android:drawable="@drawable/robot_telescopic_007" android:duration="80" />
+    <!--<item android:drawable="@drawable/robot_telescopic_006" android:duration="40" />-->
+    <item android:drawable="@drawable/robot_telescopic_005" android:duration="80" />
+    <!--<item android:drawable="@drawable/robot_telescopic_004" android:duration="40" />-->
+    <item android:drawable="@drawable/robot_telescopic_003" android:duration="80" />
+    <!--<item android:drawable="@drawable/robot_telescopic_002" android:duration="40" />-->
+    <item android:drawable="@drawable/robot_telescopic_001" android:duration="80" />
+</animation-list>

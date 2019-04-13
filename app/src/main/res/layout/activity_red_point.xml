@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hugh.interesting.RedPoint.RedPointActivity">
+    tools:context=".CustomizeViews.SmallRedPoint.RedPointActivity">
 
-    <com.example.hugh.interesting.RedPoint.RedPoint
+    <com.example.hugh.interesting.CustomizeViews.SmallRedPoint.RedPoint
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

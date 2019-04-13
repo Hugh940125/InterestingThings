@@ -23,7 +23,7 @@
             <!-- 固定屏幕的方向，处理键盘滑出事件，防止activity关闭或者重启 -->
         </activity>
         <activity android:name=".Activity.SVGActivity" />
-        <activity android:name=".HousePlan.HousePlanActivity">
+        <activity android:name=".CustomizeViews.HousePlan.HousePlanActivity">
             <intent-filter> <!-- URL Scheme启动 -->
                 <!-- 必有项 -->
                 <action android:name="android.intent.action.VIEW" />
@@ -41,10 +41,9 @@
                 <category android:name="emms.intent.category.authorization" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.RobotActivity" />
-        <activity android:name=".Keyboard.KeyBoardActivity" />
-        <activity android:name=".RedPoint.RedPointActivity" />
-        <activity android:name=".Activity.ActivityForTestRobotView" />
+        <activity android:name=".CustomizeViews.EggRobot.RobotActivity" />
+        <activity android:name=".CustomizeViews.Keyboard.KeyBoardActivity" />
+        <activity android:name=".CustomizeViews.SmallRedPoint.RedPointActivity" />
         <activity android:name=".Anim.AnimActivity" />
         <activity android:name=".SlidingConflict.SlidingConflictActivity" />
         <activity android:name=".dl.DLActivity" />
@@ -52,7 +51,11 @@
         <activity android:name=".CoordinatorLayout.CoordinatorActivity" />
         <activity android:name=".GreenDao.GreenDaoActivity" />
         <activity android:name=".HyperLink.HyperLinkActivity" />
-        <activity android:name=".Customize.SeekBarActivity"></activity>
+        <activity android:name=".CustomizeViews.CustomizeSeekbar.SeekBarActivity" />
+        <activity android:name=".CustomizeViews.GraphicLock.GraphicLockActivity" />
+        <activity android:name=".RxJava.ObservableTestActivity" />
+        <activity android:name=".Retrofit.RetrofitActivity" />
+        <activity android:name=".Thread.ThreadCollaboration.ThreadActivity"></activity>
     </application>
 
 </manifest>
