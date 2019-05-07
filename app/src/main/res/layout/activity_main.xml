@@ -117,6 +117,12 @@
         android:layout_height="wrap_content"
         android:text="Thread"
         android:id="@+id/thread"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chart"
+        android:id="@+id/chart"/>
     
     <com.example.hugh.interesting.CustomizeViews.HousePlan.TagView
         android:layout_width="100dp"

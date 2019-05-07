@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LineChart">
+        <!-- x轴的步长 -->
+        <attr name="x_step" format="integer"/>
+        <!-- y轴的步长 -->
+        <attr name="y_step" format="dimension"/>
+        <!-- 滑轮字体大小 -->
+        <attr name="wheelTextSize" format="dimension"/>
+        <!-- 滑轮字体颜色 -->
+        <attr name="wheelTextColor" format="color"/>
+        <!-- 滑轮中心字体颜色 -->
+        <attr name="wheelTextColorCenter" format="color"/>
+        <!-- 分割线颜色 -->
+        <attr name="dividerColor" format="color"/>
+    </declare-styleable>
+</resources>

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.example.hugh.interesting.Chart.ChartActivity;
 import com.example.hugh.interesting.CoordinatorLayout.CoordinatorActivity;
 import com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.SeekBarActivity;
 import com.example.hugh.interesting.CustomizeViews.EggRobot.RobotActivity;
@@ -54,6 +55,14 @@ public class MainActivity extends AppCompatActivity {
         Button SeekBar = findViewById(R.id.SeekBar);
         Button graphicLock = findViewById(R.id.graphicLock);
         Button thread = findViewById(R.id.thread);
+        Button chart = findViewById(R.id.chart);
+
+        chart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mActivity, ChartActivity.class));
+            }
+        });
 
         thread.setOnClickListener(new View.OnClickListener() {
             @Override
