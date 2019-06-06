@@ -13,9 +13,11 @@ import android.widget.TextView;
 
 import com.example.hugh.interesting.Chart.ChartActivity;
 import com.example.hugh.interesting.CoordinatorLayout.CoordinatorActivity;
+import com.example.hugh.interesting.CustomizeViews.CircleProgress.CircleProgressActivity;
 import com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.SeekBarActivity;
 import com.example.hugh.interesting.CustomizeViews.EggRobot.RobotActivity;
 import com.example.hugh.interesting.CustomizeViews.GraphicLock.GraphicLockActivity;
+import com.example.hugh.interesting.FlappyBird.FlappyBirdActivity;
 import com.example.hugh.interesting.GreenDao.GreenDaoActivity;
 import com.example.hugh.interesting.HyperLink.HyperLinkActivity;
 import com.example.hugh.interesting.R;
@@ -23,6 +25,7 @@ import com.example.hugh.interesting.Anim.AnimActivity;
 import com.example.hugh.interesting.CustomizeViews.HousePlan.HousePlanActivity;
 import com.example.hugh.interesting.CustomizeViews.Keyboard.KeyBoardActivity;
 import com.example.hugh.interesting.CustomizeViews.SmallRedPoint.RedPointActivity;
+import com.example.hugh.interesting.SurfaceView.SurfaceActivity;
 import com.example.hugh.interesting.Thread.ThreadCollaboration.ThreadActivity;
 import com.example.hugh.interesting.ViewBinder.ViewBinderTestActivity;
 
@@ -56,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         Button graphicLock = findViewById(R.id.graphicLock);
         Button thread = findViewById(R.id.thread);
         Button chart = findViewById(R.id.chart);
+        Button surface = findViewById(R.id.surface);
+
+        surface.setOnClickListener((view)->startActivity(new Intent(mActivity, CircleProgressActivity.class)));
 
         chart.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -21,14 +21,14 @@ import butterknife.OnClick;
 
 public class ThreadActivity extends AppCompatActivity {
 
-    @BindView(R.id.bt_tc)
-    Button btTc;
-    @BindView(R.id.bt_stop_tc)
-    Button btStopTc;
-    @BindView(R.id.bt_lock)
-    Button btLock;
-    @BindView(R.id.bt_stop_lock)
-    Button btStopLock;
+//    @BindView(R.id.bt_tc)
+//    Button btTc;
+//    @BindView(R.id.bt_stop_tc)
+//    Button btStopTc;
+//    @BindView(R.id.bt_lock)
+//    Button btLock;
+//    @BindView(R.id.bt_stop_lock)
+//    Button btStopLock;
     private ArrayList<Thread> threadList;
 
     @Override
@@ -39,7 +39,7 @@ public class ThreadActivity extends AppCompatActivity {
         threadList = new ArrayList<>();
     }
 
-    @OnClick({R.id.bt_tc, R.id.bt_stop_tc,R.id.bt_lock, R.id.bt_stop_lock})
+    /*@OnClick({R.id.bt_tc, R.id.bt_stop_tc,R.id.bt_lock, R.id.bt_stop_lock})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt_tc:
@@ -77,5 +77,5 @@ public class ThreadActivity extends AppCompatActivity {
                 }
                 break;
         }
-    }
+    }*/
 }

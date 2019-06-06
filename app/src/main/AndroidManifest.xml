@@ -11,7 +11,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Chart.ChartActivity"></activity>
+        <activity android:name=".CustomizeViews.CircleProgress.CircleProgressActivity"></activity>
+        <activity android:name=".FlappyBird.FlappyBirdActivity" />
+        <activity android:name=".SurfaceView.SurfaceActivity" />
+        <activity android:name=".Chart.ChartActivity" />
         <activity
             android:name=".Activity.MainActivity"
             android:configChanges="orientation|keyboardHidden"

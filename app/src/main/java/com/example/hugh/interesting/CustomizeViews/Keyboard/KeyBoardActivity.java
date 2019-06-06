@@ -13,13 +13,8 @@ public class KeyBoardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_key_board);
 
         KeyBoard keyboard = findViewById(R.id.keyboard);
-        final PwdEditText edit_pwd = findViewById(R.id.edit_pwd);
+        PwdEditText edit_pwd = findViewById(R.id.edit_pwd);
 
-        keyboard.addOnTextUpdateListener(new KeyBoard.OnTextUpdateListener() {
-            @Override
-            public void OnTextUpdate(String text) {
-                edit_pwd.setText(text);
-            }
-        });
+        keyboard.addOnTextUpdateListener(edit_pwd::setText);
     }
 }

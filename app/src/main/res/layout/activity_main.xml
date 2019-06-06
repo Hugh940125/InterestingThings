@@ -123,6 +123,12 @@
         android:layout_height="wrap_content"
         android:text="Chart"
         android:id="@+id/chart"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SurfaceView"
+        android:id="@+id/surface"/>
     
     <com.example.hugh.interesting.CustomizeViews.HousePlan.TagView
         android:layout_width="100dp"

@@ -87,13 +87,13 @@ public class LineChart extends View {
             public void run() {
                 if (mBufferCanvas != null){
                     if (index==0){
-                        mLinePath.moveTo(mLastX,mLastY);
+                        mLinePath.moveTo(DensityUtil.dp2px(16),getHeight()-DensityUtil.dp2px(16));
                     }else {
                         float stopY = (float) (Math.random() * 100) * mYStep;
-                        mLinePath.lineTo(index* mXStep,stopY);
+                        mLinePath.lineTo(index* mXStep+DensityUtil.dp2px(16),stopY);
                         mBufferCanvas.drawPath(mLinePath,mLinePaint);
                         mLinePath.reset();
-                        mLinePath.moveTo(index* mXStep,stopY);
+                        mLinePath.moveTo(index* mXStep+DensityUtil.dp2px(16),stopY);
                         PathMeasure measure = new PathMeasure(mLinePath, false);
                         length = measure.getLength();
                     }
@@ -167,8 +167,8 @@ public class LineChart extends View {
     private void drawAxis(Canvas canvas){
         mHeight = getHeight();
         mWidth = getWidth();
-        canvas.drawLine(DensityUtil.dp2px(16),getBottom()-DensityUtil.dp2px(16),getRight()-DensityUtil.dp2px(16),getBottom()-DensityUtil.dp2px(16),mAxisPaint);//横坐标
-        canvas.drawLine(DensityUtil.dp2px(16),getBottom()-DensityUtil.dp2px(16),DensityUtil.dp2px(16),getTop()+DensityUtil.dp2px(16),mAxisPaint);//纵坐标
+        canvas.drawLine(DensityUtil.dp2px(32),getBottom()-DensityUtil.dp2px(32),getRight()-DensityUtil.dp2px(32),getBottom()-DensityUtil.dp2px(32),mAxisPaint);//横坐标
+        canvas.drawLine(DensityUtil.dp2px(32),getBottom()-DensityUtil.dp2px(32),DensityUtil.dp2px(32),getTop()+DensityUtil.dp2px(32),mAxisPaint);//纵坐标
         int mXCell = (mWidth-DensityUtil.dp2px(40)) / mXCells;
         int mYCell = (mHeight-DensityUtil.dp2px(40)) / mYCells;
         for (int i=0;i<=mXCells;i++){
