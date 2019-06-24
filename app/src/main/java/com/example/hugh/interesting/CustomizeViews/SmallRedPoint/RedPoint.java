@@ -130,10 +130,10 @@ public class RedPoint extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         mViewHeight = getHeight();
         mViewWidth = getWidth();
-        mBigCircleCenterX = mViewWidth/2;
-        mBigCircleCenterY = mViewHeight/2;
-        mSmallCircleCenterX = mViewWidth/2;
-        mSmallCircleCenterY = mViewHeight/2;
+        mBigCircleCenterX = mViewWidth >> 1;
+        mBigCircleCenterY = mViewHeight >> 1;
+        mSmallCircleCenterX = mViewWidth >> 1;
+        mSmallCircleCenterY = mViewHeight >> 1;
         mCircleClipRegion = new Region((int) (mBigCircleCenterX - mBigRadius), (int) (mBigCircleCenterY - mBigRadius), (int) (mBigCircleCenterX + mBigRadius), (int) (mBigCircleCenterY + mBigRadius));
         mLimitClipRegion = new Region((int)(mSmallCircleCenterX-300),(int)(mSmallCircleCenterX-300),(int)(mSmallCircleCenterX+300),(int)(mSmallCircleCenterY+300));
         mLimitPath.addCircle(mSmallCircleCenterX,mSmallCircleCenterY,300, Path.Direction.CW);
@@ -158,7 +158,7 @@ public class RedPoint extends View {
             mBezierPath.close();
         }
         canvas.drawPath(mBezierPath,mBezierPaint);
-        canvas.drawText(mText,mBigCircleCenterX-mTextRect.width()/2,mBigCircleCenterY + mTextRect.height()/2, mTextPaint);
+        canvas.drawText(mText,mBigCircleCenterX- (mTextRect.width() >> 1),mBigCircleCenterY + (mTextRect.height() >> 1), mTextPaint);
         canvas.drawPath(mLimitPath,mBoundPaint);
     }
 

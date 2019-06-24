@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".CustomizeViews.CircleProgress.CircleProgressActivity">
+    tools:context=".CustomizeViews.ProgressBar.CircleProgressActivity">
 
-    <com.example.hugh.interesting.CustomizeViews.CircleProgress.CircleProgressBar
+    <com.example.hugh.interesting.CustomizeViews.ProgressBar.CircleProgressBar
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:layout_constraintTop_toTopOf="parent"

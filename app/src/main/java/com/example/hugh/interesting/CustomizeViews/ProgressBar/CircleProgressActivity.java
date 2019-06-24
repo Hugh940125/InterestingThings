@@ -1,4 +1,4 @@
-package com.example.hugh.interesting.CustomizeViews.CircleProgress;
+package com.example.hugh.interesting.CustomizeViews.ProgressBar;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -42,6 +42,9 @@ public class CircleProgressActivity extends AppCompatActivity implements ViewTre
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        viewTreeObserver.removeOnGlobalLayoutListener(this);
+        if (cpb != null) {
+            ViewTreeObserver viewTreeObserver = cpb.getViewTreeObserver();
+            viewTreeObserver.removeOnGlobalLayoutListener(this);
+        }
     }
 }

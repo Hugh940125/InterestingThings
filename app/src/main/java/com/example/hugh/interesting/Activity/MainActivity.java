@@ -8,16 +8,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Filter;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.hugh.interesting.Chart.ChartActivity;
 import com.example.hugh.interesting.CoordinatorLayout.CoordinatorActivity;
-import com.example.hugh.interesting.CustomizeViews.CircleProgress.CircleProgressActivity;
+import com.example.hugh.interesting.CustomizeViews.ProgressBar.CircleProgressActivity;
 import com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.SeekBarActivity;
 import com.example.hugh.interesting.CustomizeViews.EggRobot.RobotActivity;
 import com.example.hugh.interesting.CustomizeViews.GraphicLock.GraphicLockActivity;
-import com.example.hugh.interesting.FlappyBird.FlappyBirdActivity;
+import com.example.hugh.interesting.CustomizeViews.filter.FilterActivity;
 import com.example.hugh.interesting.GreenDao.GreenDaoActivity;
 import com.example.hugh.interesting.HyperLink.HyperLinkActivity;
 import com.example.hugh.interesting.R;
@@ -25,7 +26,6 @@ import com.example.hugh.interesting.Anim.AnimActivity;
 import com.example.hugh.interesting.CustomizeViews.HousePlan.HousePlanActivity;
 import com.example.hugh.interesting.CustomizeViews.Keyboard.KeyBoardActivity;
 import com.example.hugh.interesting.CustomizeViews.SmallRedPoint.RedPointActivity;
-import com.example.hugh.interesting.SurfaceView.SurfaceActivity;
 import com.example.hugh.interesting.Thread.ThreadCollaboration.ThreadActivity;
 import com.example.hugh.interesting.ViewBinder.ViewBinderTestActivity;
 
@@ -60,6 +60,14 @@ public class MainActivity extends AppCompatActivity {
         Button thread = findViewById(R.id.thread);
         Button chart = findViewById(R.id.chart);
         Button surface = findViewById(R.id.surface);
+        Button filter = findViewById(R.id.filter);
+
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mActivity, FilterActivity.class));
+            }
+        });
 
         surface.setOnClickListener((view)->startActivity(new Intent(mActivity, CircleProgressActivity.class)));
 

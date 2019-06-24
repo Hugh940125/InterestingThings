@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="397dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="取消"
+            android:textColor="#FF787C84"
+            android:textSize="18sp"
+            android:id="@+id/cancel"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="筛选"
+            android:textColor="#FF1F2633"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="确定"
+            android:textColor="#FF3A8CF4"
+            android:textSize="18sp"
+            android:id="@+id/confirm"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <com.example.hugh.interesting.CustomizeViews.filter.TextViewWithUnderLine
+        android:layout_width="100dp"
+        android:layout_height="51dp"
+        android:gravity="center"
+        android:text="请选择"
+        android:textColor="#FF1F2633"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:id="@+id/village"/>
+
+    <com.example.hugh.interesting.CustomizeViews.filter.TextViewWithUnderLine
+        android:layout_width="100dp"
+        android:layout_height="51dp"
+        android:gravity="center"
+        android:text="请选择"
+        android:id="@+id/block"
+        android:textColor="#FF1F2633"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/village"
+        app:layout_constraintTop_toBottomOf="@id/title"/>
+
+    <com.example.hugh.interesting.CustomizeViews.filter.TextViewWithUnderLine
+        android:layout_width="60dp"
+        android:layout_height="51dp"
+        android:gravity="center"
+        android:text="请选择"
+        android:id="@+id/build"
+        android:textColor="#FF1F2633"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/block"
+        app:layout_constraintTop_toBottomOf="@id/title"/>
+
+    <com.example.hugh.interesting.CustomizeViews.filter.TextViewWithUnderLine
+        android:layout_width="60dp"
+        android:layout_height="51dp"
+        android:gravity="center"
+        android:text="请选择"
+        android:id="@+id/unit"
+        app:layout_constraintStart_toEndOf="@id/build"
+        android:textColor="#FF1F2633"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/title"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/rv_filter"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toBottomOf="@id/village"
+        app:layout_constraintBottom_toBottomOf="parent">
+    </android.support.v7.widget.RecyclerView>
+
+</android.support.constraint.ConstraintLayout>

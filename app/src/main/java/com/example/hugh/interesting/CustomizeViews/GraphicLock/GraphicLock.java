@@ -2,7 +2,6 @@ package com.example.hugh.interesting.CustomizeViews.GraphicLock;
 
 /**
  * Created by Hugh on 2019/3/28.
- *
  */
 
 import android.content.Context;
@@ -19,10 +18,10 @@ import android.view.View;
 
 import com.example.hugh.interesting.R;
 import com.example.hugh.interesting.Utils.Utils;
+
 import java.util.ArrayList;
 
 /**
- *
  * Created by 60352 on 2018/3/5.
  */
 
@@ -53,10 +52,10 @@ public class GraphicLock extends View {
         super(context, attrs, defStyleAttr);
     }
 
-    public static Bitmap drawableToBitmap (Drawable drawable) {
+    public static Bitmap drawableToBitmap(Drawable drawable) {
 
         if (drawable instanceof BitmapDrawable) {
-            return ((BitmapDrawable)drawable).getBitmap();
+            return ((BitmapDrawable) drawable).getBitmap();
         }
 
         Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
@@ -67,8 +66,9 @@ public class GraphicLock extends View {
         return bitmap;
     }
 
-    private void initData(){
-
+    private void initData() {
+        paint.setAntiAlias(true);
+        paint.setStrokeJoin(Paint.Join.ROUND);
         //初始化图片资源
         Drawable point_normal = getResources().getDrawable(R.drawable.point_normal, null);
         NormalPoint = drawableToBitmap(point_normal);
@@ -86,26 +86,26 @@ public class GraphicLock extends View {
         int offsetY = 0;
         int offsetX = 0;
         //竖屏
-        if (height > width){
-            offsetY = (height - width)/2;
+        if (height > width) {
+            offsetY = (height - width) / 2;
             height = width;
             //横屏
-        }else {
-            offsetX = (width - height)/2;
+        } else {
+            offsetX = (width - height) / 2;
             width = height;
         }
 
-        points[0][0] = new Point(offsetX + width/4, offsetY + width/4);
-        points[0][1] = new Point(offsetX + width/2, offsetY + width/4);
-        points[0][2] = new Point(offsetX + 3*width/4, offsetY + width/4);
+        points[0][0] = new Point(offsetX + width / 4, offsetY + width / 4);
+        points[0][1] = new Point(offsetX + width / 2, offsetY + width / 4);
+        points[0][2] = new Point(offsetX + 3 * width / 4, offsetY + width / 4);
 
-        points[1][0] = new Point(offsetX + width/4, offsetY + width/2);
-        points[1][1] = new Point(offsetX + width/2, offsetY + width/2);
-        points[1][2] = new Point(offsetX + 3*width/4, offsetY + width/2);
+        points[1][0] = new Point(offsetX + width / 4, offsetY + width / 2);
+        points[1][1] = new Point(offsetX + width / 2, offsetY + width / 2);
+        points[1][2] = new Point(offsetX + 3 * width / 4, offsetY + width / 2);
 
-        points[2][0] = new Point(offsetX + width/4, offsetY + 3*width/4);
-        points[2][1] = new Point(offsetX + width/2, offsetY + 3*width/4);
-        points[2][2] = new Point(offsetX + 3*width/4, offsetY + 3*width/4);
+        points[2][0] = new Point(offsetX + width / 4, offsetY + 3 * width / 4);
+        points[2][1] = new Point(offsetX + width / 2, offsetY + 3 * width / 4);
+        points[2][2] = new Point(offsetX + 3 * width / 4, offsetY + 3 * width / 4);
 
         isInit = true;
     }
@@ -113,9 +113,9 @@ public class GraphicLock extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         isFinished = false;
-        switch (event.getAction()){
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                for (Point point:selectedPoints){
+                for (Point point : selectedPoints) {
                     point.State = Point.STATE_NORMAL;
                 }
                 selectedPoints.clear();
@@ -134,8 +134,8 @@ public class GraphicLock extends View {
     }
 
     private void finishSelect() {
-        if (selectedPoints.size() < 4){
-            for (Point point:selectedPoints){
+        if (selectedPoints.size() < 4) {
+            for (Point point : selectedPoints) {
                 point.State = Point.STATE_ERROR;
             }
         }
@@ -144,12 +144,12 @@ public class GraphicLock extends View {
     private void judgePoint(MotionEvent event) {
         current_x = event.getX();
         current_y = event.getY();
-        for (int i=0;i<points.length;i++){
-            for (int j=0;j<points.length;j++){
+        for (int i = 0; i < points.length; i++) {
+            for (int j = 0; j < points.length; j++) {
                 Point point = points[i][j];
-                if (Utils.distanceBetweenPoints(point.x,point.y, current_x, current_y) < bitmapR){
+                if (Utils.distanceBetweenPoints(point.x, point.y, current_x, current_y) < bitmapR) {
                     point.State = Point.STATE_PRESSED;
-                    if (!selectedPoints.contains(point)){
+                    if (!selectedPoints.contains(point)) {
                         selectedPoints.add(point);
                     }
                 }
@@ -160,7 +160,7 @@ public class GraphicLock extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (!isInit){
+        if (!isInit) {
             initData();
         }
         drawPoints(canvas);
@@ -170,34 +170,34 @@ public class GraphicLock extends View {
     private void drawLine(Canvas canvas) {
         paint.setStrokeWidth(10);
         paint.setColor(Color.BLUE);
-        if (isFinished){
-            if (selectedPoints.size() >= 2){
-                for (int i=0;i<selectedPoints.size() - 1;i++){
-                    canvas.drawLine(selectedPoints.get(i).x,selectedPoints.get(i).y,selectedPoints.get(i+1).x,selectedPoints.get(i+1).y,paint);
+        if (isFinished) {
+            if (selectedPoints.size() >= 2) {
+                for (int i = 0; i < selectedPoints.size() - 1; i++) {
+                    canvas.drawLine(selectedPoints.get(i).x, selectedPoints.get(i).y, selectedPoints.get(i + 1).x, selectedPoints.get(i + 1).y, paint);
                 }
             }
-        }else {
-            if (selectedPoints.size() >= 2){
-                for (int i=0;i<selectedPoints.size() - 1;i++){
-                    canvas.drawLine(selectedPoints.get(i).x,selectedPoints.get(i).y,selectedPoints.get(i+1).x,selectedPoints.get(i+1).y,paint);
+        } else {
+            if (selectedPoints.size() >= 2) {
+                for (int i = 0; i < selectedPoints.size() - 1; i++) {
+                    canvas.drawLine(selectedPoints.get(i).x, selectedPoints.get(i).y, selectedPoints.get(i + 1).x, selectedPoints.get(i + 1).y, paint);
                 }
-                canvas.drawLine(selectedPoints.get(selectedPoints.size() - 1).x,selectedPoints.get(selectedPoints.size() - 1).y,current_x,current_y,paint);
-            }else if (selectedPoints.size() == 1){
-                canvas.drawLine(selectedPoints.get(0).x,selectedPoints.get(0).y,current_x,current_y,paint);
+                canvas.drawLine(selectedPoints.get(selectedPoints.size() - 1).x, selectedPoints.get(selectedPoints.size() - 1).y, current_x, current_y, paint);
+            } else if (selectedPoints.size() == 1) {
+                canvas.drawLine(selectedPoints.get(0).x, selectedPoints.get(0).y, current_x, current_y, paint);
             }
         }
     }
 
     private void drawPoints(Canvas canvas) {
-        for (int i=0;i<points.length;i++){
-            for (int j=0;j<points.length;j++){
+        for (int i = 0; i < points.length; i++) {
+            for (int j = 0; j < points.length; j++) {
                 Point point = points[i][j];
-                if (point.State == Point.STATE_NORMAL){
-                    canvas.drawBitmap(NormalPoint,point.x - bitmapR,point.y - bitmapR,paint);
-                }else if (point.State == Point.STATE_ERROR){
-                    canvas.drawBitmap(PressedPoint,point.x - bitmapR,point.y - bitmapR,paint);
-                }else if (point.State == Point.STATE_PRESSED){
-                    canvas.drawBitmap(SelectPoint,point.x - bitmapR,point.y - bitmapR,paint);
+                if (point.State == Point.STATE_NORMAL) {
+                    canvas.drawBitmap(NormalPoint, point.x - bitmapR, point.y - bitmapR, paint);
+                } else if (point.State == Point.STATE_ERROR) {
+                    canvas.drawBitmap(PressedPoint, point.x - bitmapR, point.y - bitmapR, paint);
+                } else if (point.State == Point.STATE_PRESSED) {
+                    canvas.drawBitmap(SelectPoint, point.x - bitmapR, point.y - bitmapR, paint);
                 }
             }
         }

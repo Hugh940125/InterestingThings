@@ -15,6 +15,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.hugh.interesting.R;
 import com.example.hugh.interesting.Utils.DensityUtil;
@@ -127,6 +128,7 @@ public class CustomizeSeekBar extends View {
     }
 
     private void output(int position) {
+        Toast.makeText(mContext, position+"", Toast.LENGTH_SHORT).show();
         if (mGearListener != null) {
             mGearListener.onGearSelected(position);
         }
@@ -235,7 +237,7 @@ public class CustomizeSeekBar extends View {
         mViewHeight = getHeight();
         mViewWidth = getWidth();
         mViewLeft = getLeft();
-        mCursorX = mViewWidth/2;
+        mCursorX = mViewWidth>>1;
         mCursorY = mCursorHeight/2;
         mRegionPath = new Path();
         halfWidth = DensityUtil.dp2px(25);
@@ -244,7 +246,7 @@ public class CustomizeSeekBar extends View {
         mPointerRegion = new Region();
         mPointerRegion.setPath(mRegionPath,new Region((int)(mCursorX - halfWidth),(int)(mCursorY - halfHeight),(int)(mCursorX+ halfWidth),(int)(mCursorY+ halfHeight)));
         mInterval = (int) ((mViewHeight- mCursorHeight) / 6);
-        mRuleRect = new RectF(mViewWidth / 2 - mRuleWidth / 2, 0, mViewWidth / 2 + mRuleWidth / 2, mViewHeight);
+        mRuleRect = new RectF((mViewWidth >> 1) - mRuleWidth / 2, 0, (mViewWidth >> 1) + mRuleWidth / 2, mViewHeight);
         mCursorRect = new RectF(mCursorX - halfWidth, mCursorY - halfHeight, mCursorX + halfWidth, mCursorY + halfHeight);
     }
 
