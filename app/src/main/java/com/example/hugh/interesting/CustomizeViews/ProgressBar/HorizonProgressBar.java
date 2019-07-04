@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+
 import com.example.hugh.interesting.Utils.DensityUtil;
 
 /**
@@ -16,6 +17,7 @@ public class HorizonProgressBar extends View {
 
     private Paint mProgressPaint;
     private Paint mBGPaint;
+    private float mPercent = 0.55F;
 
     public HorizonProgressBar(Context context) {
         this(context, null);
@@ -30,10 +32,14 @@ public class HorizonProgressBar extends View {
         mProgressPaint = new Paint();
         mProgressPaint.setAntiAlias(true);
         mProgressPaint.setStrokeCap(Paint.Cap.ROUND);
+        mProgressPaint.setStrokeWidth(DensityUtil.dp2px(10));
+        mProgressPaint.setStyle(Paint.Style.STROKE);
         mProgressPaint.setColor(Color.parseColor("#3092ea"));
 
         mBGPaint = new Paint();
         mBGPaint.setAntiAlias(true);
+        mBGPaint.setStrokeWidth(DensityUtil.dp2px(11));
+        mBGPaint.setStyle(Paint.Style.STROKE);
         mBGPaint.setStrokeCap(Paint.Cap.ROUND);
         mBGPaint.setColor(Color.parseColor("#dddddd"));
     }
@@ -48,12 +54,12 @@ public class HorizonProgressBar extends View {
         if (widthMode == MeasureSpec.EXACTLY) {
             widthSize = MeasureSpec.getSize(widthMeasureSpec);
         } else if (widthMode == MeasureSpec.AT_MOST) {
-            widthSize = DensityUtil.dp2px(50);
+            widthSize = DensityUtil.dp2px(275);
         }
         if (heightMode == MeasureSpec.EXACTLY) {
             heightSize = MeasureSpec.getSize(heightMeasureSpec);
         } else if (widthMode == MeasureSpec.AT_MOST) {
-            heightSize = DensityUtil.dp2px(275);
+            heightSize = DensityUtil.dp2px(40);
         }
         setMeasuredDimension(widthSize, heightSize);
     }
@@ -61,7 +67,7 @@ public class HorizonProgressBar extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawRect(DensityUtil.dp2px(15), DensityUtil.dp2px(5), getWidth() - DensityUtil.dp2px(15), getHeight() - DensityUtil.dp2px(5),mBGPaint);
-        canvas.drawRect(DensityUtil.dp2px(15), DensityUtil.dp2px(5), getWidth() - DensityUtil.dp2px(15), getHeight() - DensityUtil.dp2px(5),mProgressPaint);
+        canvas.drawLine(DensityUtil.dp2px(15), DensityUtil.dp2px(25), getWidth() - DensityUtil.dp2px(15), DensityUtil.dp2px(25), mBGPaint);
+        canvas.drawLine(DensityUtil.dp2px(15), DensityUtil.dp2px(25), (getWidth() - DensityUtil.dp2px(30)) * mPercent + DensityUtil.dp2px(15), DensityUtil.dp2px(25), mProgressPaint);
     }
 }

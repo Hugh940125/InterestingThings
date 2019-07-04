@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context=".CustomizeViews.CustomizeSeekbar.SeekBarActivity">
+    tools:context=".CustomizeViews.CustomizeSeekbar.GearSeekBarActivity">
 
-        <com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.CustomizeSeekBar
+        <com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.GearSeekBar
             android:id="@+id/cs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

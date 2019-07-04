@@ -1,145 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/sv_root">
-
-<LinearLayout
-    android:orientation="vertical"
+<android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sv_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hugh.interesting.Activity.MainActivity">
+    app:columnCount="2">
 
-    <TextView
-        android:transitionName="share"
-        android:text="This is a Header"
+    <Button
+        android:textAllCaps="false"
+        android:id="@+id/btn_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_columnWeight="1"
         android:gravity="center"
-        android:layout_marginBottom="1dp"
-        android:padding="10dp"
+        android:text="共享控件"
         android:textSize="15sp"
-        android:background="@android:color/holo_green_dark"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/tv_header"/>
+        android:transitionName="share" />
 
     <Button
-        android:transitionName="share"
-        android:text="This is a Header"
-        android:gravity="center"
-        android:padding="10dp"
-        android:textSize="15sp"
-        android:background="@android:color/holo_green_dark"
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
-
-    <Button
-        android:layout_width="match_parent"
+        android:textAllCaps="false"
+        app:layout_columnWeight="1"
+        android:id="@+id/svg"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Robot"
-        android:id="@+id/robot"/>
+        android:text="矢量动画" />
 
     <Button
-        android:layout_width="match_parent"
+        app:layout_columnWeight="1"
+        android:id="@+id/scheme"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HousePlan"
-        android:id="@+id/house_plan"/>
+        android:text="隐式跳转" />
 
     <Button
-        android:layout_width="match_parent"
+        app:layout_columnWeight="1"
+        android:id="@+id/keyboard"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SVG"
-        android:id="@+id/svg"/>
+        android:text="键盘" />
 
     <Button
-        android:layout_width="match_parent"
+        app:layout_columnWeight="1"
+        android:id="@+id/red_point"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="scheme"
-        android:id="@+id/scheme"/>
+        android:text="小红点" />
 
     <Button
-        android:layout_width="match_parent"
+        android:textAllCaps="false"
+        app:layout_columnWeight="1"
+        android:id="@+id/animation_image_view"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="keyboard"
-        android:id="@+id/keyboard"/>
+        android:text="动画ImageView" />
 
     <Button
-        android:layout_width="match_parent"
+        app:layout_columnWeight="1"
+        android:id="@+id/view_binder"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="redPoint"
-        android:id="@+id/red_point"/>
+        android:text="视图绑定" />
 
     <Button
-        android:layout_width="match_parent"
+        android:textAllCaps="false"
+        app:layout_columnWeight="1"
+        android:id="@+id/green_dao"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="animation imageView"
-        android:id="@+id/animation_image_view"/>
+        android:text="GreenDao" />
 
     <Button
-        android:layout_width="match_parent"
+        app:layout_columnWeight="1"
+        android:id="@+id/hyper_link"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="view binder"
-        android:id="@+id/view_binder"/>
+        android:text="超链接" />
 
     <Button
-        android:layout_width="match_parent"
+        android:textAllCaps="false"
+        app:layout_columnWeight="1"
+        android:id="@+id/SeekBar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Coordinator"
-        android:id="@+id/coordinator"/>
+        android:text="GearSeekBar" />
 
     <Button
-        android:layout_width="match_parent"
+        android:textAllCaps="false"
+        app:layout_columnWeight="1"
+        android:id="@+id/graphicLock"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GreenDao"
-        android:id="@+id/green_dao"/>
+        android:text="图形锁" />
 
     <Button
-        android:layout_width="match_parent"
+        android:textAllCaps="false"
+        app:layout_columnWeight="1"
+        android:id="@+id/thread"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HyperLink"
-        android:id="@+id/hyper_link"/>
+        android:text="线程" />
 
     <Button
-        android:layout_width="match_parent"
+        android:textAllCaps="false"
+        app:layout_columnWeight="1"
+        android:id="@+id/chart"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SeekBar"
-        android:id="@+id/SeekBar"/>
+        android:text="图表" />
 
     <Button
-        android:layout_width="match_parent"
+        android:textAllCaps="false"
+        app:layout_columnWeight="1"
+        android:id="@+id/surface"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="graphicLock"
-        android:id="@+id/graphicLock"/>
+        android:text="进度条" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Thread"
-        android:id="@+id/thread"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Chart"
-        android:id="@+id/chart"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SurfaceView"
-        android:id="@+id/surface"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Filter"
-        android:id="@+id/filter"/>
-    
-    <com.example.hugh.interesting.CustomizeViews.HousePlan.TagView
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"/>
-
-</LinearLayout>
-</ScrollView>
+</android.support.v7.widget.GridLayout>

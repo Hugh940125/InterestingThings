@@ -1,4 +1,4 @@
-package com.example.hugh.interesting.Anim;
+package com.example.hugh.interesting.AnimImageView;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -5,9 +5,9 @@ import android.os.Bundle;
 
 import com.example.hugh.interesting.R;
 
-public class SeekBarActivity extends AppCompatActivity {
+public class GearSeekBarActivity extends AppCompatActivity {
 
-    private CustomizeSeekBar cs;
+    private GearSeekBar cs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

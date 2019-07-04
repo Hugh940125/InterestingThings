@@ -1,4 +1,4 @@
-package com.example.hugh.interesting.Anim;
+package com.example.hugh.interesting.AnimImageView;
 
 /**
  * Created by Hugh on 2019/1/9.
@@ -9,7 +9,6 @@ import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.ImageView;
-
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;

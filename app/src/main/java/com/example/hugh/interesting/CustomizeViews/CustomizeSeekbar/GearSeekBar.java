@@ -25,12 +25,9 @@ import com.example.hugh.interesting.Utils.DensityUtil;
  *
  */
 
-public class CustomizeSeekBar extends View {
+public class GearSeekBar extends View {
     private int mViewHeight;
-    private int mViewWidth;
-    private int mViewLeft;
     private Paint mRulePaint;
-    private Paint mCursorPaint;
     private float mCursorX;
     private float mCursorY;
     final float mCursorHeight = DensityUtil.dp2px(16);
@@ -46,11 +43,11 @@ public class CustomizeSeekBar extends View {
     private RectF mRuleRect;
     private RectF mCursorRect;
 
-    public CustomizeSeekBar(Context context) {
+    public GearSeekBar(Context context) {
         this(context,null);
     }
 
-    public CustomizeSeekBar(Context context, @Nullable AttributeSet attrs) {
+    public GearSeekBar(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
@@ -60,11 +57,11 @@ public class CustomizeSeekBar extends View {
         mRulePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mRulePaint.setColor(Color.RED);
         mRulePaint.setStrokeWidth(5);
-        mCursorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        Paint mCursorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mCursorPaint.setColor(Color.RED);
     }
 
-    public CustomizeSeekBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public GearSeekBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -135,7 +132,7 @@ public class CustomizeSeekBar extends View {
     }
 
     public void setPosition(int position){
-        if (mRegionPath != null && mRegionPath != null){
+        if (mRegionPath != null){
             switch (position){
                 case 0:
                     output(0);
@@ -235,9 +232,8 @@ public class CustomizeSeekBar extends View {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         mViewHeight = getHeight();
-        mViewWidth = getWidth();
-        mViewLeft = getLeft();
-        mCursorX = mViewWidth>>1;
+        int mViewWidth = getWidth();
+        mCursorX = mViewWidth >>1;
         mCursorY = mCursorHeight/2;
         mRegionPath = new Path();
         halfWidth = DensityUtil.dp2px(25);

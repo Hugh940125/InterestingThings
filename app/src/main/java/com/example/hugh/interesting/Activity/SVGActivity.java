@@ -25,44 +25,19 @@ public class SVGActivity extends AppCompatActivity {
         setContentView(R.layout.activity_svg);
 
         image1 = findViewById(R.id.image1);
-        image1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                animate1();
-            }
-        });
+        image1.setOnClickListener(view -> animate1());
 
         image2 = findViewById(R.id.image2);
-        image2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                animate2();
-            }
-        });
+        image2.setOnClickListener(view -> animate2());
 
         image3 = findViewById(R.id.image3);
-        image3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                animate3();
-            }
-        });
+        image3.setOnClickListener(view -> animate3());
 
         image4 = findViewById(R.id.image4);
-        image4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                animate4();
-            }
-        });
+        image4.setOnCheckedChangeListener((buttonView, isChecked) -> animate4());
 
         image5 = findViewById(R.id.image5);
-        image5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                animate5();
-            }
-        });
+        image5.setOnClickListener(v -> animate5());
     }
 
     public void animate1(){

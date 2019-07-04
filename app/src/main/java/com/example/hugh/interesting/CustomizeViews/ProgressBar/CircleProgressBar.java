@@ -27,7 +27,7 @@ public class CircleProgressBar extends View {
     private int mCenterY;
     private Paint mNumberPaint;
     private Paint mTextPaint;
-    private int mPercent = 95;
+    private int mPercent = 55;
     private int mAngle = (int) (mPercent / 100F * 360);
     private Rect mDescRect;
     private Rect mUnitRect;
@@ -40,6 +40,9 @@ public class CircleProgressBar extends View {
     private final String mUnit;
     private Matrix matrix;
     private SweepGradient mSweepGradient;
+    private float[] mPositions = new float[6];
+    private int[] colors = new int[]{Color.parseColor("#FF569AF7"), Color.parseColor("#FF5798F7"), Color.parseColor("#FF5A76F1"), Color.parseColor("#FF5C59EB"), Color.parseColor("#FF5C59EB"), Color.parseColor("#FF5C59EB")};
+    private Paint mCirclePaint;
 
     {
         mDesc = "已完成率";
@@ -56,7 +59,7 @@ public class CircleProgressBar extends View {
         mProgressPaint.setAntiAlias(true);
         mProgressPaint.setColor(Color.parseColor("#3092ea"));
         mProgressPaint.setStyle(Paint.Style.STROKE);
-        mProgressPaint.setStrokeWidth(DensityUtil.dp2px(15));
+        mProgressPaint.setStrokeWidth(DensityUtil.dp2px(12));
 
         mNumberPaint = new Paint();
         mNumberPaint.setAntiAlias(true);
@@ -73,9 +76,20 @@ public class CircleProgressBar extends View {
         mTextPaint.setStyle(Paint.Style.FILL);
         mTextPaint.setSubpixelText(true);
 
+        mCirclePaint = new Paint();
+        mCirclePaint.setAntiAlias(true);
+        mCirclePaint.setStyle(Paint.Style.FILL);
+        mCirclePaint.setSubpixelText(true);
+        mCirclePaint.setColor(colors[5]);
+
         mDescRect = new Rect();
         mUnitRect = new Rect();
         mNumberRect = new Rect();
+
+        float singleAngle = (float) (mAngle / 6.0);
+        for (int index = 0; index < 6; index++) {
+            mPositions[index] = index * singleAngle / 360.0F;
+        }
     }
 
     @Override
@@ -84,7 +98,7 @@ public class CircleProgressBar extends View {
         rectF = new RectF(DensityUtil.dp2px(10), DensityUtil.dp2px(10), getWidth() - DensityUtil.dp2px(10), getHeight() - DensityUtil.dp2px(10));
         mCenterX = getWidth() >> 1;
         mCenterY = getHeight() >> 1;
-        mSweepGradient = new SweepGradient(mCenterX, mCenterY, new int[]{Color.parseColor("#FF579BF7"), Color.parseColor("#FF5C59EB")}, null);
+        mSweepGradient = new SweepGradient(mCenterX, mCenterY, colors, mPositions);
         matrix = new Matrix();
     }
 
@@ -100,13 +114,11 @@ public class CircleProgressBar extends View {
             invalidate();
         });
         AngleValueAnimator.setDuration(1500);
-//        AngleValueAnimator.setInterpolator(new OvershootInterpolator());
         AngleValueAnimator.setInterpolator(new DecelerateInterpolator());
 
         ValueAnimator NumberValueAnimator = ValueAnimator.ofInt(0, mPercent);
         NumberValueAnimator.addUpdateListener(animation -> mCurrentNumber = (int) animation.getAnimatedValue());
         NumberValueAnimator.setDuration(1500);
-//        NumberValueAnimator.setInterpolator(new OvershootInterpolator());
         NumberValueAnimator.setInterpolator(new DecelerateInterpolator());
 
         animatorSet.playTogether(AngleValueAnimator, NumberValueAnimator);
@@ -147,5 +159,9 @@ public class CircleProgressBar extends View {
         canvas.drawText(percent, mCenterX - (mNumberRect.width() >> 1) - (mUnitRect.width() >> 1), mCenterY + (mNumberRect.height() >> 1) - (mDescRect.height() >> 1) - mTextPadding, mNumberPaint);
         canvas.drawText(mUnit, mCenterX + (mNumberRect.width() >> 1), mCenterY + (mNumberRect.height() >> 1) - (mUnitRect.height() >> 1) - mTextPadding, mTextPaint);
         canvas.drawText(mDesc, mCenterX - (mDescRect.width() >> 1), mCenterY + (mNumberRect.height() >> 1) + (mDescRect.height() >> 1) + mTextPadding, mTextPaint);
+        canvas.save();
+        canvas.rotate(mCurrentAngle, mCenterX, mCenterY);
+        canvas.drawCircle(mCenterX, DensityUtil.dp2px(10), DensityUtil.dp2px(6), mCirclePaint);
+        canvas.restore();
     }
 }

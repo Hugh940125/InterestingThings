@@ -49,13 +49,13 @@
         <activity android:name=".CustomizeViews.EggRobot.RobotActivity" />
         <activity android:name=".CustomizeViews.Keyboard.KeyBoardActivity" />
         <activity android:name=".CustomizeViews.SmallRedPoint.RedPointActivity" />
-        <activity android:name=".Anim.AnimActivity" />
+        <activity android:name=".AnimImageView.AnimActivity" />
         <activity android:name=".SlidingConflict.SlidingConflictActivity" />
         <activity android:name=".ViewBinder.ViewBinderTestActivity" />
         <activity android:name=".CoordinatorLayout.CoordinatorActivity" />
         <activity android:name=".GreenDao.GreenDaoActivity" />
         <activity android:name=".HyperLink.HyperLinkActivity" />
-        <activity android:name=".CustomizeViews.CustomizeSeekbar.SeekBarActivity" />
+        <activity android:name=".CustomizeViews.CustomizeSeekbar.GearSeekBarActivity" />
         <activity android:name=".CustomizeViews.GraphicLock.GraphicLockActivity" />
         <activity android:name=".RxJava.ObservableTestActivity" />
         <activity android:name=".Retrofit.RetrofitActivity" />
