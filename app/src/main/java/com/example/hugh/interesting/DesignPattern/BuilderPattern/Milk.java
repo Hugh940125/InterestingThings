@@ -1,13 +1,17 @@
 package com.example.hugh.interesting.DesignPattern.BuilderPattern;
 
-import android.util.Log;
-
 /**
  * Created by Hugh on 2019/7/4.
  */
-public class Milk implements Packing {
+public class Milk extends Drink {
+
     @Override
-    public void pack() {
-        Log.e("BuildPattern", "Packing in glass bottle");
+    public String getName() {
+        return "Milk";
+    }
+
+    @Override
+    public float getPrice() {
+        return 5.5F;
     }
 }

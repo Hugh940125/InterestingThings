@@ -117,4 +117,20 @@
         android:layout_height="wrap_content"
         android:text="进度条" />
 
+    <Button
+    android:textAllCaps="false"
+    app:layout_columnWeight="1"
+    android:id="@+id/rv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="列表" />
+
+    <Button
+        android:textAllCaps="false"
+        app:layout_columnWeight="1"
+        android:id="@+id/punch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打卡" />
+
 </android.support.v7.widget.GridLayout>
