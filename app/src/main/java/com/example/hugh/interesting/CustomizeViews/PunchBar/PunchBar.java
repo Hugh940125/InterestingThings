@@ -24,7 +24,6 @@ import java.util.List;
  * Created by Hugh on 2019/7/11.
  */
 public class PunchBar extends View {
-
     private List<EachDayInfo> mDayInfos = new ArrayList<>(Arrays.asList(new EachDayInfo("7.11", true, false), new EachDayInfo("7.12", true, false), new EachDayInfo("今日", false, true), new EachDayInfo("7.14", false, false), new EachDayInfo("7.15", false, false), new EachDayInfo("7.16", false, false), new EachDayInfo("7.17", false, false)));
     private int mPadding = DensityUtil.dp2px(5);
     private int mPunchSize = DensityUtil.dp2px(20);

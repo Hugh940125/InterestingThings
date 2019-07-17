@@ -5,15 +5,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 
 import com.example.hugh.interesting.AnimImageView.AnimActivity;
 import com.example.hugh.interesting.Chart.ChartActivity;
+import com.example.hugh.interesting.CustomizeViews.CustomImageView.ImagViewActivity;
 import com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.GearSeekBarActivity;
 import com.example.hugh.interesting.CustomizeViews.GraphicLock.GraphicLockActivity;
 import com.example.hugh.interesting.CustomizeViews.Keyboard.KeyBoardActivity;
-import com.example.hugh.interesting.CustomizeViews.ProgressBar.CircleProgressActivity;
+import com.example.hugh.interesting.CustomizeViews.ProgressBar.ProgressActivity;
 import com.example.hugh.interesting.CustomizeViews.PunchBar.PunchBarActivity;
 import com.example.hugh.interesting.CustomizeViews.SmallRedPoint.RedPointActivity;
 import com.example.hugh.interesting.GreenDao.GreenDaoActivity;
@@ -50,12 +50,15 @@ public class MainActivity extends AppCompatActivity {
         Button surface = findViewById(R.id.surface);
         Button rv = findViewById(R.id.rv);
         Button punch = findViewById(R.id.punch);
+        Button imageView = findViewById(R.id.imageView);
+
+        imageView.setOnClickListener(v -> startActivity(new Intent(mActivity, ImagViewActivity.class)));
 
         punch.setOnClickListener(v -> startActivity(new Intent(mActivity, PunchBarActivity.class)));
 
         rv.setOnClickListener((view) -> startActivity(new Intent(mActivity, RecyclerViewTestActivity.class)));
 
-        surface.setOnClickListener((view) -> startActivity(new Intent(mActivity, CircleProgressActivity.class)));
+        surface.setOnClickListener((view) -> startActivity(new Intent(mActivity, ProgressActivity.class)));
 
         chart.setOnClickListener(v -> startActivity(new Intent(mActivity, ChartActivity.class)));
 

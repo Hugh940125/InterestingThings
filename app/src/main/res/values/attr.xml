@@ -14,4 +14,14 @@
         <!-- 分割线颜色 -->
         <attr name="dividerColor" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="RoundedRectImageView">
+        <attr name="roundedCorners">
+            <flag name="leftRound" value="1"/>
+            <flag name="rightRound" value="2"/>
+            <flag name="topRound" value="3"/>
+            <flag name="bottomRound" value="4"/>
+            <flag name="all" value="0"/>
+        </attr>
+    </declare-styleable>
 </resources>

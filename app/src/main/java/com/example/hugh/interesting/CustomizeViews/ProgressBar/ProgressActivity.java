@@ -11,13 +11,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class CircleProgressActivity extends AppCompatActivity implements ViewTreeObserver.OnGlobalLayoutListener {
+public class ProgressActivity extends AppCompatActivity implements ViewTreeObserver.OnGlobalLayoutListener {
 
     @BindView(R.id.start)
     TextView start;
     @BindView(R.id.cpb)
     CircleProgressBar cpb;
-    private ViewTreeObserver viewTreeObserver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +24,7 @@ public class CircleProgressActivity extends AppCompatActivity implements ViewTre
         setContentView(R.layout.activity_circle_progress);
         ButterKnife.bind(this);
 
-        viewTreeObserver = cpb.getViewTreeObserver();
+        ViewTreeObserver viewTreeObserver = cpb.getViewTreeObserver();
         viewTreeObserver.addOnGlobalLayoutListener(this);
     }
 
