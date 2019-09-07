@@ -3,11 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.hugh.interesting.HyperLink.HyperLinkActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/hyperLink"/>
+
+    <TextView
+        android:typeface="normal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/span_string"/>
 
 </LinearLayout>

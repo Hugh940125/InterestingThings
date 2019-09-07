@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.example.hugh.interesting.R;
 
-public class ImagViewActivity extends AppCompatActivity {
+public class ImageViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -80,7 +80,7 @@ public class SegmentationBar extends View {
             int startX = mSegmentWidth * i + DensityUtil.dp2px(10);
             int endX = mSegmentWidth * (i + 1) - DensityUtil.dp2px(10);
             canvas.drawLine(startX, DensityUtil.dp2px(25), endX, DensityUtil.dp2px(25), mBGPaint);
-            if (i<mPercent){
+            if (i < mPercent) {
                 canvas.drawLine(startX, DensityUtil.dp2px(25), endX, DensityUtil.dp2px(25), mProgressPaint);
             }
         }

@@ -11,7 +11,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Hugh on 2019/4/19.
  */
-public class TestAdapter extends BaseRecyclerAdapter<String, TestAdapter.ViewHolder> {
+public class TestAdapter extends BaseRecyclerAdapter<Integer, TestAdapter.ViewHolder> {
 
     private OnActionSelectListener onActionSelectListener;
 
@@ -30,8 +30,8 @@ public class TestAdapter extends BaseRecyclerAdapter<String, TestAdapter.ViewHol
     }
 
     @Override
-    protected void onBindViewHolder(ViewHolder holder, String mData, final int pos) {
-        holder.tvActionName.setText(mData);
+    protected void onBindViewHolder(ViewHolder holder, Integer mData, final int pos) {
+        holder.tvActionName.setBackgroundColor(mData);
     }
 
     public interface OnActionSelectListener {

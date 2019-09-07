@@ -43,6 +43,7 @@ public class CircleProgressBar extends View {
     private float[] mPositions = new float[6];
     private int[] colors = new int[]{Color.parseColor("#FF569AF7"), Color.parseColor("#FF5798F7"), Color.parseColor("#FF5A76F1"), Color.parseColor("#FF5C59EB"), Color.parseColor("#FF5C59EB"), Color.parseColor("#FF5C59EB")};
     private Paint mCirclePaint;
+    private Paint mProgressBgPaint;
 
     {
         mDesc = "已完成率";
@@ -81,6 +82,12 @@ public class CircleProgressBar extends View {
         mCirclePaint.setStyle(Paint.Style.FILL);
         mCirclePaint.setSubpixelText(true);
         mCirclePaint.setColor(colors[5]);
+
+        mProgressBgPaint = new Paint();
+        mProgressBgPaint.setAntiAlias(true);
+        mProgressBgPaint.setColor(Color.parseColor("#FFF5F6F8"));
+        mProgressBgPaint.setStyle(Paint.Style.STROKE);
+        mProgressBgPaint.setStrokeWidth(DensityUtil.dp2px(12));
 
         mDescRect = new Rect();
         mUnitRect = new Rect();
@@ -132,17 +139,17 @@ public class CircleProgressBar extends View {
         int heightSize = 0;
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-        if (widthMode == MeasureSpec.EXACTLY){
+        if (widthMode == MeasureSpec.EXACTLY) {
             widthSize = MeasureSpec.getSize(widthMeasureSpec);
-        }else if (widthMode == MeasureSpec.AT_MOST){
+        } else if (widthMode == MeasureSpec.AT_MOST) {
             widthSize = DensityUtil.dp2px(50);
         }
-        if (heightMode == MeasureSpec.EXACTLY){
+        if (heightMode == MeasureSpec.EXACTLY) {
             heightSize = MeasureSpec.getSize(heightMeasureSpec);
-        }else if (widthMode == MeasureSpec.AT_MOST){
+        } else if (widthMode == MeasureSpec.AT_MOST) {
             heightSize = DensityUtil.dp2px(275);
         }
-        setMeasuredDimension(widthSize,heightSize);
+        setMeasuredDimension(widthSize, heightSize);
     }
 
     @Override
@@ -152,9 +159,10 @@ public class CircleProgressBar extends View {
         mTextPaint.getTextBounds(mDesc, 0, mDesc.length(), mDescRect);
         mTextPaint.getTextBounds(mUnit, 0, mUnit.length(), mUnitRect);
         mNumberPaint.getTextBounds(percent, 0, percent.length(), mNumberRect);
-        matrix.setRotate(-90f, getWidth()>>1, getHeight()>>1);
+        matrix.setRotate(-90f, getWidth() >> 1, getHeight() >> 1);
         mSweepGradient.setLocalMatrix(matrix);
         mProgressPaint.setShader(mSweepGradient);
+        canvas.drawArc(rectF, 270, 360, false, mProgressBgPaint);
         canvas.drawArc(rectF, 270, mCurrentAngle, false, mProgressPaint);
         canvas.drawText(percent, mCenterX - (mNumberRect.width() >> 1) - (mUnitRect.width() >> 1), mCenterY + (mNumberRect.height() >> 1) - (mDescRect.height() >> 1) - mTextPadding, mNumberPaint);
         canvas.drawText(mUnit, mCenterX + (mNumberRect.width() >> 1), mCenterY + (mNumberRect.height() >> 1) - (mUnitRect.height() >> 1) - mTextPadding, mTextPaint);

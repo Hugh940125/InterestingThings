@@ -12,7 +12,8 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 /**
- * Created by lcodecore on 2016/11/26.
+ * Created by Hugh on 2018/12/7.
+ *
  */
 
 public class AnimProcessor implements IAnimRefresh, IAnimOverScroll {

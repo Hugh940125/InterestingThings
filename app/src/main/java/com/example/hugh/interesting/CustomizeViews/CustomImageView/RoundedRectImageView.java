@@ -1,34 +1,46 @@
 package com.example.hugh.interesting.CustomizeViews.CustomImageView;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
 import android.graphics.Canvas;
-import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
-
-import com.example.hugh.interesting.R;
-import com.example.hugh.interesting.Utils.DensityUtil;
+import android.util.TypedValue;
 
 /**
  * Created by Hugh on 2019/7/12.
  */
 public class RoundedRectImageView extends android.support.v7.widget.AppCompatImageView {
-    private int roundWidth;
-    private int roundHeight;
-    private Paint paint;
-    private Paint paint2;
-    private Canvas canvas2;
-    private Bitmap bitmap;
-    private int roundedCorners;
+    /**
+     * 圆形模式
+     */
+    private static final int MODE_CIRCLE = 1;
+    /**
+     * 普通模式
+     */
+    private static final int MODE_NONE = 0;
+    /**
+     * 圆角模式
+     */
+    private static final int MODE_ROUND = 2;
+    private Paint mPaint;
+    private int currMode = 0;
+    /**
+     * 圆角半径
+     */
+    private int currRound = dp2px(10);
 
     public RoundedRectImageView(Context context) {
-        this(context, null);
+        super(context);
+        initViews();
     }
 
     public RoundedRectImageView(Context context, AttributeSet attrs) {
@@ -37,98 +49,94 @@ public class RoundedRectImageView extends android.support.v7.widget.AppCompatIma
 
     public RoundedRectImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs);
+        initViews();
     }
 
-    private void init(Context context, AttributeSet attrs) {
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RoundedRectImageView);
-        roundedCorners = typedArray.getInt(R.styleable.RoundedRectImageView_roundedCorners, 0);
-        typedArray.recycle();
-
-        roundWidth = DensityUtil.dp2px(8);
-        roundHeight = DensityUtil.dp2px(8);
-        paint = new Paint();
-        paint.setColor(Color.WHITE);
-        paint.setAntiAlias(true);
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        paint2 = new Paint();
-        paint2.setXfermode(null);
+    private void initViews() {
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
     }
 
     @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
-        bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
-        canvas2 = new Canvas(bitmap);
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        /**
+         * 当模式为圆形模式的时候，我们强制让宽高一致
+         */
+        if (currMode == MODE_CIRCLE) {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+            int result = Math.min(getMeasuredHeight(), getMeasuredWidth());
+            setMeasuredDimension(result, result);
+        } else {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        }
     }
 
+    @SuppressLint("DrawAllocation")
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        if (roundedCorners == 1) {
-            drawLeftUp(canvas2);
-            drawLeftBottom(canvas2);
+        Drawable mDrawable = getDrawable();
+        Matrix mDrawMatrix = getImageMatrix();
+        if (mDrawable == null) {
+            return; // couldn't resolve the URI
         }
-        if (roundedCorners == 2) {
-            drawRightUp(canvas2);
-            drawRightBottom(canvas2);
+
+        if (mDrawable.getIntrinsicWidth() == 0 || mDrawable.getIntrinsicHeight() == 0) {
+            return;     // nothing to draw (empty bounds)
         }
-        if (roundedCorners == 3) {
-            drawLeftUp(canvas2);
-            drawRightUp(canvas2);
+
+        if (mDrawMatrix == null && getPaddingTop() == 0 && getPaddingLeft() == 0) {
+            mDrawable.draw(canvas);
+        } else {
+            final int saveCount = canvas.getSaveCount();
+            canvas.save();
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                if (getCropToPadding()) {
+                    final int scrollX = getScrollX();
+                    final int scrollY = getScrollY();
+                    canvas.clipRect(scrollX + getPaddingLeft(), scrollY + getPaddingTop(),
+                            scrollX + getRight() - getLeft() - getPaddingRight(),
+                            scrollY + getBottom() - getTop() - getPaddingBottom());
+                }
+            }
+            canvas.translate(getPaddingLeft(), getPaddingTop());
+            if (currMode == MODE_CIRCLE) {//当为圆形模式的时候
+                Bitmap bitmap = drawable2Bitmap(mDrawable);
+                mPaint.setShader(new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
+                canvas.drawCircle(getWidth()>>1, getHeight()>>1, getWidth()>>1, mPaint);
+            } else if (currMode == MODE_ROUND) {//当为圆角模式的时候
+                Bitmap bitmap = drawable2Bitmap(mDrawable);
+                mPaint.setShader(new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
+                canvas.drawRoundRect(new RectF(getPaddingLeft(), getPaddingTop(), getWidth() - getPaddingRight(), getHeight() - getPaddingBottom()),
+                        currRound, currRound, mPaint);
+            } else {
+                if (mDrawMatrix != null) {
+                    canvas.concat(mDrawMatrix);
+                }
+                mDrawable.draw(canvas);
+            }
+            canvas.restoreToCount(saveCount);
         }
-        if (roundedCorners == 4) {
-            drawLeftBottom(canvas2);
-            drawRightBottom(canvas2);
-        }
-        if (roundedCorners == 0) {
-            drawLeftUp(canvas2);
-            drawRightUp(canvas2);
-            drawLeftBottom(canvas2);
-            drawRightBottom(canvas2);
-        }
-        canvas.drawBitmap(bitmap, 0, 0, paint2);
-        bitmap.recycle();
     }
 
-
-    private void drawLeftUp(Canvas canvas) {
-        Path path = new Path();
-        path.moveTo(0, roundHeight);
-        path.lineTo(0, 0);
-        path.lineTo(roundWidth, 0);
-        path.arcTo(new RectF(0, 0, roundWidth * 2, roundHeight * 2), -90, -90);
-        path.close();
-        canvas.drawPath(path, paint);
+    /**
+     * drawable转换成bitmap
+     */
+    private Bitmap drawable2Bitmap(Drawable drawable) {
+        if (drawable == null) {
+            return null;
+        }
+        Bitmap bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        //根据传递的scaletype获取matrix对象，设置给bitmap
+        Matrix matrix = getImageMatrix();
+        if (matrix != null) {
+            canvas.concat(matrix);
+        }
+        drawable.draw(canvas);
+        return bitmap;
     }
 
-    private void drawRightUp(Canvas canvas) {
-        Path path = new Path();
-        path.moveTo(getWidth(), roundHeight);
-        path.lineTo(getWidth(), 0);
-        path.lineTo(getWidth() - roundWidth, 0);
-        path.arcTo(new RectF(getWidth() - roundWidth * 2, 0, getWidth(), roundHeight * 2), -90, 90);
-        path.close();
-        canvas.drawPath(path, paint);
-    }
-
-    private void drawLeftBottom(Canvas canvas) {
-        Path path = new Path();
-        path.moveTo(roundWidth, getHeight());
-        path.lineTo(0, getHeight());
-        path.lineTo(0, getHeight() - roundHeight);
-        path.arcTo(new RectF(0, getHeight() - roundHeight * 2, roundWidth * 2, getHeight()), 90, -90);
-        path.close();
-        canvas.drawPath(path, paint);
-    }
-
-    private void drawRightBottom(Canvas canvas) {
-        Path path = new Path();
-        path.moveTo(roundWidth, getHeight());
-        path.lineTo(getWidth(), getHeight());
-        path.lineTo(getWidth() - roundHeight, getHeight() - roundHeight);
-        path.arcTo(new RectF(getWidth() - roundWidth * 2, getHeight() - roundHeight * 2, roundWidth * 2, getHeight()), 90, -90);
-        path.close();
-        canvas.drawPath(path, paint);
+    private int dp2px(float value) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, getResources().getDisplayMetrics());
     }
 }

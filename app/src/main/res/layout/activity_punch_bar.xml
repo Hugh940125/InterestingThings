@@ -6,12 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".CustomizeViews.PunchBar.PunchBarActivity">
 
-    <com.example.hugh.interesting.CustomizeViews.PunchBar.PunchBar
-        android:layout_width="300dp"
-        android:layout_height="60dp"
+    <RelativeLayout
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@android:color/holo_red_light"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_scroll"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintVertical_weight="1">
+
+        <com.example.hugh.interesting.CustomizeViews.PunchBar.PunchBar
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

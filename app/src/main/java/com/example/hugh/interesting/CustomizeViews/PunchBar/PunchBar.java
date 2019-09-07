@@ -82,6 +82,26 @@ public class PunchBar extends View {
     }
 
     @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int widthSize = 0;
+        int heightSize = 0;
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        if (widthMode == MeasureSpec.EXACTLY){
+            widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        }else if (widthMode == MeasureSpec.AT_MOST){
+            widthSize = DensityUtil.dp2px(300);
+        }
+        if (heightMode == MeasureSpec.EXACTLY){
+            heightSize = MeasureSpec.getSize(heightMeasureSpec);
+        }else if (widthMode == MeasureSpec.AT_MOST){
+            heightSize = DensityUtil.dp2px(60);
+        }
+        setMeasuredDimension(widthSize,heightSize);
+    }
+
+    @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         mWidth = getWidth();
@@ -149,6 +169,7 @@ public class PunchBar extends View {
                 canvas.drawCircle(mPunchCenters[i].x, mPunchCenters[i].y, DensityUtil.dp2px(6), mRingPaint);
                 mRingPaint.setColor(Color.parseColor("#FFFFFFFF"));
                 canvas.drawCircle(mPunchCenters[i].x, mPunchCenters[i].y, DensityUtil.dp2px(4), mRingPaint);
+                mRingPaint.setColor(Color.parseColor("#FF5076ED"));
                 mTodayRect = mRects[i];
                 mTodayInfo = eachDayInfo;
             }
@@ -175,8 +196,8 @@ public class PunchBar extends View {
             case MotionEvent.ACTION_UP:
                 int upX = (int) event.getX();
                 int upY = (int) event.getY();
-                if (mTodayRect.contains(downX,downY)&&mTodayRect.contains(upX,upY)) {
-                    if (!mTodayInfo.getPunched()){
+                if (mTodayRect.contains(downX, downY) && mTodayRect.contains(upX, upY)) {
+                    if (!mTodayInfo.getPunched()) {
                         mTodayInfo.setPunched(true);
                         invalidate();
                         isPunched = false;

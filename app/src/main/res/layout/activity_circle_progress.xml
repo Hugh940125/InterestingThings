@@ -55,9 +55,19 @@
             android:layout_height="50dp"
             app:layout_constraintTop_toBottomOf="@id/vb"
             android:layout_marginTop="50dp"
+            android:id="@+id/seg"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_centerInParent="true" />
+
+        <com.example.hugh.interesting.CustomizeViews.ProgressBar.ArchProgressBar
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/apb"
+            app:layout_constraintTop_toBottomOf="@id/seg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="50dp" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

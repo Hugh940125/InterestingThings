@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Process;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -38,6 +39,22 @@ public class CheckPermissionUtils {
         return instance;
     }
 
+    public boolean checkSelfPermission(String permission) {
+        try {
+            if (permission == null) {
+                throw new IllegalArgumentException("permission is null");
+            }
+
+            int checkSelfPermission = mContext.getApplicationContext().checkPermission(permission, Process.myPid(), Process.myUid());
+            if (checkSelfPermission == 0) {
+                return true;
+            }
+        } catch (Exception var2) {
+            var2.printStackTrace();
+        }
+
+        return false;
+    }
 
     /**
      * 申请权限

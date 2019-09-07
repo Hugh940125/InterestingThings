@@ -10,9 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Author: lzw
- * Date: 2018/3/8
- * Description: This is BaseRecyclerAdapter
+ * Created by Hugh on 2018/12/7.
+ *
  */
 
 public abstract class BaseRecyclerAdapter<T, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter {
@@ -44,12 +43,12 @@ public abstract class BaseRecyclerAdapter<T, VH extends RecyclerView.ViewHolder>
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        onBindViewHolder((VH) holder, mList.get(position), position);
+        onBindViewHolder((VH) holder, mList.get(position%mList.size()), position);
     }
 
     @Override
     public int getItemCount() {
-        return mList.size();
+        return Integer.MAX_VALUE;
     }
 
 

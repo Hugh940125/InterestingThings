@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StrikethroughSpan;
+import android.text.style.StyleSpan;
+import android.text.style.UnderlineSpan;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -23,6 +28,7 @@ public class HyperLinkActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hyper_link);
 
         TextView hyperLink = findViewById(R.id.hyperLink);
+        TextView spanString = findViewById(R.id.span_string);
         hyperLink.setLineSpacing(0,1.5f);
         hyperLink.setTextSize(TypedValue.COMPLEX_UNIT_SP,15);
         hyperLink.setGravity(Gravity.CENTER);
@@ -43,5 +49,21 @@ public class HyperLinkActivity extends AppCompatActivity {
         hyperLink.setText(str);
         hyperLink.setMovementMethod(LinkMovementMethod.getInstance());//不设置 没有点击事件
         hyperLink.setHighlightColor(Color.TRANSPARENT); //设置点击后的颜色为透明
+
+        SpannableString spannableString = new SpannableString("这是测试字符串哈哈哈");
+        //字体颜色
+        spannableString.setSpan(new ForegroundColorSpan(Color.RED),2,4,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        //字体大小
+        spannableString.setSpan(new AbsoluteSizeSpan(DensityUtil.sp2px(this,16)),2,4,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        //设置字体样式: NORMAL正常，BOLD粗体，ITALIC斜体，BOLD_ITALIC粗斜体
+        spannableString.setSpan(new StyleSpan(android.graphics.Typeface.NORMAL), 0, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 2, 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new StyleSpan(android.graphics.Typeface.ITALIC), 4, 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD_ITALIC), 6, 8, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        //设置下划线
+        spannableString.setSpan(new UnderlineSpan(), 2, 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        //设置删除线
+        spannableString.setSpan(new StrikethroughSpan(), 6, 8, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spanString.setText(spannableString);
     }
 }

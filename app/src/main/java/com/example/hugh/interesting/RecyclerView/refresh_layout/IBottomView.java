@@ -3,7 +3,8 @@ package com.example.hugh.interesting.RecyclerView.refresh_layout;
 import android.view.View;
 
 /**
- * Created by lcodecore on 2016/10/1.
+ * Created by Hugh on 2018/12/7.
+ *
  */
 
 public interface IBottomView {

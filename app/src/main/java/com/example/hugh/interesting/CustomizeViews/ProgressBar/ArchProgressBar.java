@@ -27,8 +27,8 @@ public class ArchProgressBar extends View {
     private int mCenterY;
     private Paint mNumberPaint;
     private Paint mTextPaint;
-    private int mPercent = 55;
-    private int mAngle = (int) (mPercent / 100F * 360);
+    private int mPercent = 100;
+    private int mAngle = (int) (mPercent / 100F * 270);
     private Rect mDescRect;
     private Rect mUnitRect;
     private Rect mNumberRect;
@@ -42,6 +42,7 @@ public class ArchProgressBar extends View {
     private SweepGradient mSweepGradient;
     private float[] mPositions = new float[6];
     private int[] colors = new int[]{Color.parseColor("#FF569AF7"), Color.parseColor("#FF5798F7"), Color.parseColor("#FF5A76F1"), Color.parseColor("#FF5C59EB"), Color.parseColor("#FF5C59EB"), Color.parseColor("#FF5C59EB")};
+    private Paint mProgressBgPaint;
     private Paint mCirclePaint;
 
     {
@@ -60,6 +61,7 @@ public class ArchProgressBar extends View {
         mProgressPaint.setColor(Color.parseColor("#3092ea"));
         mProgressPaint.setStyle(Paint.Style.STROKE);
         mProgressPaint.setStrokeWidth(DensityUtil.dp2px(12));
+        mProgressPaint.setStrokeCap(Paint.Cap.ROUND);
 
         mNumberPaint = new Paint();
         mNumberPaint.setAntiAlias(true);
@@ -76,11 +78,18 @@ public class ArchProgressBar extends View {
         mTextPaint.setStyle(Paint.Style.FILL);
         mTextPaint.setSubpixelText(true);
 
+        mProgressBgPaint = new Paint();
+        mProgressBgPaint.setAntiAlias(true);
+        mProgressBgPaint.setColor(Color.parseColor("#FFF5F6F8"));
+        mProgressBgPaint.setStyle(Paint.Style.STROKE);
+        mProgressBgPaint.setStrokeWidth(DensityUtil.dp2px(10));
+        mProgressBgPaint.setStrokeCap(Paint.Cap.ROUND);
+
         mCirclePaint = new Paint();
         mCirclePaint.setAntiAlias(true);
         mCirclePaint.setStyle(Paint.Style.FILL);
         mCirclePaint.setSubpixelText(true);
-        mCirclePaint.setColor(colors[5]);
+        mCirclePaint.setColor(colors[0]);
 
         mDescRect = new Rect();
         mUnitRect = new Rect();
@@ -88,7 +97,7 @@ public class ArchProgressBar extends View {
 
         float singleAngle = (float) (mAngle / 6.0);
         for (int index = 0; index < 6; index++) {
-            mPositions[index] = index * singleAngle / 360.0F;
+            mPositions[index] = index * singleAngle / 270.0F;
         }
     }
 
@@ -132,17 +141,17 @@ public class ArchProgressBar extends View {
         int heightSize = 0;
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-        if (widthMode == MeasureSpec.EXACTLY){
+        if (widthMode == MeasureSpec.EXACTLY) {
             widthSize = MeasureSpec.getSize(widthMeasureSpec);
-        }else if (widthMode == MeasureSpec.AT_MOST){
+        } else if (widthMode == MeasureSpec.AT_MOST) {
             widthSize = DensityUtil.dp2px(50);
         }
-        if (heightMode == MeasureSpec.EXACTLY){
+        if (heightMode == MeasureSpec.EXACTLY) {
             heightSize = MeasureSpec.getSize(heightMeasureSpec);
-        }else if (widthMode == MeasureSpec.AT_MOST){
+        } else if (widthMode == MeasureSpec.AT_MOST) {
             heightSize = DensityUtil.dp2px(275);
         }
-        setMeasuredDimension(widthSize,heightSize);
+        setMeasuredDimension(widthSize, heightSize);
     }
 
     @Override
@@ -152,15 +161,16 @@ public class ArchProgressBar extends View {
         mTextPaint.getTextBounds(mDesc, 0, mDesc.length(), mDescRect);
         mTextPaint.getTextBounds(mUnit, 0, mUnit.length(), mUnitRect);
         mNumberPaint.getTextBounds(percent, 0, percent.length(), mNumberRect);
-        matrix.setRotate(-90f, getWidth()>>1, getHeight()>>1);
+        matrix.setRotate(135f, getWidth() >> 1, getHeight() >> 1);
         mSweepGradient.setLocalMatrix(matrix);
         mProgressPaint.setShader(mSweepGradient);
-        canvas.drawArc(rectF, 270, mCurrentAngle, false, mProgressPaint);
+        canvas.drawArc(rectF, 135, 270, false, mProgressBgPaint);
+        canvas.drawArc(rectF, 135, mCurrentAngle, false, mProgressPaint);
         canvas.drawText(percent, mCenterX - (mNumberRect.width() >> 1) - (mUnitRect.width() >> 1), mCenterY + (mNumberRect.height() >> 1) - (mDescRect.height() >> 1) - mTextPadding, mNumberPaint);
         canvas.drawText(mUnit, mCenterX + (mNumberRect.width() >> 1), mCenterY + (mNumberRect.height() >> 1) - (mUnitRect.height() >> 1) - mTextPadding, mTextPaint);
         canvas.drawText(mDesc, mCenterX - (mDescRect.width() >> 1), mCenterY + (mNumberRect.height() >> 1) + (mDescRect.height() >> 1) + mTextPadding, mTextPaint);
         canvas.save();
-        canvas.rotate(mCurrentAngle, mCenterX, mCenterY);
+        canvas.rotate(225, mCenterX, mCenterY);
         canvas.drawCircle(mCenterX, DensityUtil.dp2px(10), DensityUtil.dp2px(6), mCirclePaint);
         canvas.restore();
     }

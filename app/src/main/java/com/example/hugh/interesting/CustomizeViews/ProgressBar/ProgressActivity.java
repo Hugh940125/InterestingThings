@@ -17,6 +17,8 @@ public class ProgressActivity extends AppCompatActivity implements ViewTreeObser
     TextView start;
     @BindView(R.id.cpb)
     CircleProgressBar cpb;
+    @BindView(R.id.apb)
+    ArchProgressBar apb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +26,8 @@ public class ProgressActivity extends AppCompatActivity implements ViewTreeObser
         setContentView(R.layout.activity_circle_progress);
         ButterKnife.bind(this);
 
-        ViewTreeObserver viewTreeObserver = cpb.getViewTreeObserver();
-        viewTreeObserver.addOnGlobalLayoutListener(this);
+        ViewTreeObserver viewTreeObserver1 = cpb.getViewTreeObserver();
+        viewTreeObserver1.addOnGlobalLayoutListener(this);
     }
 
     @OnClick(R.id.start)
@@ -36,6 +38,7 @@ public class ProgressActivity extends AppCompatActivity implements ViewTreeObser
     @Override
     public void onGlobalLayout() {
         cpb.start();
+        apb.start();
     }
 
     @Override

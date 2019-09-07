@@ -28,10 +28,9 @@ public class FlowLayout extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        //   super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        //super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         //遍历去调用所有子元素的measure方法（child.getMeasuredHeight()才能获取到值，否则为0）
         measureChildren(widthMeasureSpec, heightMeasureSpec);
-
         int measuredWidth = 0, measuredHeight = 0;
 
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);

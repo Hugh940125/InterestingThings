@@ -37,7 +37,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class LineChart extends View {
 
     private Paint mAxisPaint;
-    private int mXMax = 100;
+    private int mXMax = 50;
     private int mYMax = 100;
     private int mXCells = 10;
     private int mYCells = 10;
@@ -101,7 +101,6 @@ public class LineChart extends View {
                     Message message = mHandler.obtainMessage();
                     message.what = 1;
                     mHandler.sendMessage(message);
-                    //invalidate();
                 }
             }
         };
@@ -116,12 +115,7 @@ public class LineChart extends View {
             if (msg.what==1){
                 ValueAnimator valueAnimator = ObjectAnimator.ofFloat(1.0f, 0.0f);
                 valueAnimator.setDuration(3000);
-                valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                    @Override
-                    public void onAnimationUpdate(ValueAnimator animation) {
-                        setPhase((Float) animation.getAnimatedValue());
-                    }
-                });
+                valueAnimator.addUpdateListener(animation -> setPhase((Float) animation.getAnimatedValue()));
                 valueAnimator.start();
             }
         }
@@ -167,8 +161,8 @@ public class LineChart extends View {
     private void drawAxis(Canvas canvas){
         mHeight = getHeight();
         mWidth = getWidth();
-        canvas.drawLine(DensityUtil.dp2px(32),getBottom()-DensityUtil.dp2px(32),getRight()-DensityUtil.dp2px(32),getBottom()-DensityUtil.dp2px(32),mAxisPaint);//横坐标
-        canvas.drawLine(DensityUtil.dp2px(32),getBottom()-DensityUtil.dp2px(32),DensityUtil.dp2px(32),getTop()+DensityUtil.dp2px(32),mAxisPaint);//纵坐标
+        canvas.drawLine(DensityUtil.dp2px(16),getBottom()-DensityUtil.dp2px(16),getRight()-DensityUtil.dp2px(16),getBottom()-DensityUtil.dp2px(16),mAxisPaint);//横坐标
+        canvas.drawLine(DensityUtil.dp2px(16),getBottom()-DensityUtil.dp2px(16),DensityUtil.dp2px(16),getTop()+DensityUtil.dp2px(16),mAxisPaint);//纵坐标
         int mXCell = (mWidth-DensityUtil.dp2px(40)) / mXCells;
         int mYCell = (mHeight-DensityUtil.dp2px(40)) / mYCells;
         for (int i=0;i<=mXCells;i++){

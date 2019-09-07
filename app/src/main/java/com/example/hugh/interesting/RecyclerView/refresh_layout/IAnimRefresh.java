@@ -1,7 +1,8 @@
 package com.example.hugh.interesting.RecyclerView.refresh_layout;
 
 /**
- * Created by lcodecore on 2017/3/3.
+ * Created by Hugh on 2018/12/7.
+ *
  */
 
 public interface IAnimRefresh {

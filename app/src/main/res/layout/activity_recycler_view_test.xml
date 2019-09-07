@@ -10,12 +10,29 @@
         android:layout_height="match_parent"
         android:id="@+id/rl_test">
 
-        <android.support.v7.widget.RecyclerView
+        <com.example.hugh.interesting.RecyclerView.RecyclerCoverFlow
             android:id="@+id/rv_test"
+            android:layout_centerVertical="true"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="180dp"
             android:overScrollMode="never"
             android:background="#fff" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/bt_next"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/bt_last"/>
 
     </com.example.hugh.interesting.RecyclerView.refresh_layout.RefreshLayout>
 

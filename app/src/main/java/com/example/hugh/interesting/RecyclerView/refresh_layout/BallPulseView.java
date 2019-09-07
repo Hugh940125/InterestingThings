@@ -15,7 +15,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by lcodecore on 2017/3/7.
+ * Created by Hugh on 2018/12/7.
+ *
  */
 
 public class BallPulseView extends View implements IBottomView {

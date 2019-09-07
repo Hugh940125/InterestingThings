@@ -5,17 +5,19 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 
 import com.example.hugh.interesting.AnimImageView.AnimActivity;
 import com.example.hugh.interesting.Chart.ChartActivity;
-import com.example.hugh.interesting.CustomizeViews.CustomImageView.ImagViewActivity;
+import com.example.hugh.interesting.CustomizeViews.CustomImageView.ImageViewActivity;
 import com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.GearSeekBarActivity;
 import com.example.hugh.interesting.CustomizeViews.GraphicLock.GraphicLockActivity;
 import com.example.hugh.interesting.CustomizeViews.Keyboard.KeyBoardActivity;
 import com.example.hugh.interesting.CustomizeViews.ProgressBar.ProgressActivity;
 import com.example.hugh.interesting.CustomizeViews.PunchBar.PunchBarActivity;
 import com.example.hugh.interesting.CustomizeViews.SmallRedPoint.RedPointActivity;
+import com.example.hugh.interesting.EventDelivery.EventDeliveryTestActivity;
 import com.example.hugh.interesting.GreenDao.GreenDaoActivity;
 import com.example.hugh.interesting.HyperLink.HyperLinkActivity;
 import com.example.hugh.interesting.R;
@@ -40,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         Button red_point = findViewById(R.id.red_point);
         Button animation_image_view = findViewById(R.id.animation_image_view);
         Button view_binder = findViewById(R.id.view_binder);
-        Button coordinator = findViewById(R.id.coordinator);
         Button green_dao = findViewById(R.id.green_dao);
         Button hyper_link = findViewById(R.id.hyper_link);
         Button SeekBar = findViewById(R.id.SeekBar);
@@ -51,8 +52,11 @@ public class MainActivity extends AppCompatActivity {
         Button rv = findViewById(R.id.rv);
         Button punch = findViewById(R.id.punch);
         Button imageView = findViewById(R.id.imageView);
+        Button event = findViewById(R.id.event);
 
-        imageView.setOnClickListener(v -> startActivity(new Intent(mActivity, ImagViewActivity.class)));
+        event.setOnClickListener(v -> startActivity(new Intent(mActivity, EventDeliveryTestActivity.class)));
+
+        imageView.setOnClickListener(v -> startActivity(new Intent(mActivity, ImageViewActivity.class)));
 
         punch.setOnClickListener(v -> startActivity(new Intent(mActivity, PunchBarActivity.class)));
 

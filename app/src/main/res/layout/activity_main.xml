@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/sv_root"
     android:layout_width="match_parent"
@@ -8,137 +9,180 @@
     app:columnCount="2">
 
     <Button
-        android:textAllCaps="false"
         android:id="@+id/btn_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_columnWeight="1"
+        android:fontFamily="@font/calligraphy"
         android:gravity="center"
         android:text="共享控件"
+        android:textAllCaps="false"
+        android:textAppearance="@style/CusTomTextAppearance"
         android:textSize="15sp"
-        android:transitionName="share" />
+        android:transitionName="share"
+        app:layout_columnWeight="1" />
 
     <Button
-        android:textAllCaps="false"
-        app:layout_columnWeight="1"
         android:id="@+id/svg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="矢量动画" />
+        android:fontFamily="@font/calligraphy"
+        android:text="矢量动画"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
 
     <Button
-        app:layout_columnWeight="1"
         android:id="@+id/scheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="隐式跳转" />
+        android:fontFamily="@font/calligraphy"
+        android:text="隐式跳转"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
 
     <Button
-        app:layout_columnWeight="1"
         android:id="@+id/keyboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="键盘" />
+        android:fontFamily="@font/calligraphy"
+        android:text="键盘"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
 
     <Button
-        app:layout_columnWeight="1"
         android:id="@+id/red_point"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="小红点" />
+        android:fontFamily="@font/calligraphy"
+        android:text="小红点"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
 
     <Button
-        android:textAllCaps="false"
-        app:layout_columnWeight="1"
         android:id="@+id/animation_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="动画ImageView" />
+        android:fontFamily="@font/calligraphy"
+        android:text="动画ImageView"
+        android:textAllCaps="false"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
 
     <Button
-        app:layout_columnWeight="1"
         android:id="@+id/view_binder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="视图绑定" />
+        android:fontFamily="@font/calligraphy"
+        android:text="视图绑定"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
 
     <Button
-        android:textAllCaps="false"
-        app:layout_columnWeight="1"
         android:id="@+id/green_dao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GreenDao" />
+        android:fontFamily="@font/calligraphy"
+        android:text="GreenDao"
+        android:textAllCaps="false"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
 
     <Button
-        app:layout_columnWeight="1"
         android:id="@+id/hyper_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="超链接" />
+        android:fontFamily="@font/calligraphy"
+        android:text="超链接"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
 
     <Button
-        android:textAllCaps="false"
-        app:layout_columnWeight="1"
         android:id="@+id/SeekBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GearSeekBar" />
+        android:fontFamily="@font/calligraphy"
+        android:text="GearSeekBar"
+        android:textAllCaps="false"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
 
     <Button
-        android:textAllCaps="false"
-        app:layout_columnWeight="1"
         android:id="@+id/graphicLock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="图形锁" />
+        android:fontFamily="@font/calligraphy"
+        android:text="图形锁"
+        android:textAllCaps="false"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
 
     <Button
-        android:textAllCaps="false"
-        app:layout_columnWeight="1"
         android:id="@+id/thread"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="线程" />
+        android:fontFamily="@font/calligraphy"
+        android:text="线程"
+        android:textAllCaps="false"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
 
     <Button
-        android:textAllCaps="false"
-        app:layout_columnWeight="1"
         android:id="@+id/chart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="图表" />
+        android:fontFamily="@font/calligraphy"
+        android:text="图表"
+        android:textAllCaps="false"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
 
     <Button
-        android:textAllCaps="false"
-        app:layout_columnWeight="1"
         android:id="@+id/surface"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="进度条" />
-
-    <Button
-    android:textAllCaps="false"
-    app:layout_columnWeight="1"
-    android:id="@+id/rv"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="列表" />
-
-    <Button
+        android:fontFamily="@font/calligraphy"
+        android:text="进度条"
         android:textAllCaps="false"
-        app:layout_columnWeight="1"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
+
+    <Button
+        android:id="@+id/rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/calligraphy"
+        android:text="列表"
+        android:textAllCaps="false"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
+
+    <Button
         android:id="@+id/punch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="打卡" />
+        android:fontFamily="@font/calligraphy"
+        android:text="打卡"
+        android:textAllCaps="false"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
 
     <Button
-        android:textAllCaps="false"
-        app:layout_columnWeight="1"
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="自定义ImageView" />
+        android:fontFamily="@font/calligraphy"
+        android:text="自定义ImageView"
+        android:textAllCaps="false"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
+
+    <Button
+        android:id="@+id/event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/calligraphy"
+        android:text="事件传递"
+        android:textAllCaps="false"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
 
 </android.support.v7.widget.GridLayout>
