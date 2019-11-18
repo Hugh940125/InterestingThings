@@ -1,6 +1,7 @@
 package com.example.hugh.interesting.RecyclerView;
 
 import android.content.Context;
+import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import butterknife.ButterKnife;
 public class TestAdapter extends BaseRecyclerAdapter<Integer, TestAdapter.ViewHolder> {
 
     private OnActionSelectListener onActionSelectListener;
+    private Handler handler;
 
     public TestAdapter(Context context) {
         super(context);

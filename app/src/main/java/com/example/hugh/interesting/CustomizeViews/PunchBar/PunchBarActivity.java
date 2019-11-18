@@ -23,23 +23,4 @@ public class PunchBarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_punch_bar);
         ButterKnife.bind(this);
     }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getActionMasked()){
-            case MotionEvent.ACTION_DOWN:
-                x = event.getX();
-                y = event.getY();
-                break;
-            case MotionEvent.ACTION_MOVE:
-                float x1 = event.getX();
-                float y1 = event.getY();
-                rlScroll.scrollTo((int)(x -x1), (int)(y -y1));
-                break;
-            case MotionEvent.ACTION_UP:
-                break;
-        }
-        return true;
-//        return super.onTouchEvent(event);
-    }
 }

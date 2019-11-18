@@ -23,7 +23,7 @@ public class TestTextView extends android.support.v7.widget.AppCompatTextView {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.e(TAG, "onTouchEvent ---- TestTextView");
-        return super.onTouchEvent(event);
+        return true;
     }
 
     @Override

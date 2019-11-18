@@ -14,6 +14,7 @@ import com.example.hugh.interesting.CustomizeViews.CustomImageView.ImageViewActi
 import com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.GearSeekBarActivity;
 import com.example.hugh.interesting.CustomizeViews.GraphicLock.GraphicLockActivity;
 import com.example.hugh.interesting.CustomizeViews.Keyboard.KeyBoardActivity;
+import com.example.hugh.interesting.CustomizeViews.LayoutMannegerExcise.LayoutManagerActivity;
 import com.example.hugh.interesting.CustomizeViews.ProgressBar.ProgressActivity;
 import com.example.hugh.interesting.CustomizeViews.PunchBar.PunchBarActivity;
 import com.example.hugh.interesting.CustomizeViews.SmallRedPoint.RedPointActivity;
@@ -36,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mActivity = this;
         btn_header = findViewById(R.id.btn_header);
-        Button svg = findViewById(R.id.svg);
         Button scheme = findViewById(R.id.scheme);
         Button keyboard = findViewById(R.id.keyboard);
         Button red_point = findViewById(R.id.red_point);
@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         Button punch = findViewById(R.id.punch);
         Button imageView = findViewById(R.id.imageView);
         Button event = findViewById(R.id.event);
+        Button layout_manager = findViewById(R.id.layout_manager);
+
+        layout_manager.setOnClickListener(v -> startActivity(new Intent(mActivity, LayoutManagerActivity.class)));
 
         event.setOnClickListener(v -> startActivity(new Intent(mActivity, EventDeliveryTestActivity.class)));
 
@@ -84,8 +87,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("url_scheme_b://b_main_activity"));
             startActivity(intent);
         });
-
-        svg.setOnClickListener(v -> startActivity(new Intent(mActivity, SVGActivity.class)));
 
         keyboard.setOnClickListener(v -> startActivity(new Intent(mActivity, KeyBoardActivity.class)));
 

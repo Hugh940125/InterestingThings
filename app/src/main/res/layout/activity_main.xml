@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <android.support.v7.widget.GridLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -19,15 +18,6 @@
         android:textAppearance="@style/CusTomTextAppearance"
         android:textSize="15sp"
         android:transitionName="share"
-        app:layout_columnWeight="1" />
-
-    <Button
-        android:id="@+id/svg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/calligraphy"
-        android:text="矢量动画"
-        android:textAppearance="@style/CusTomTextAppearance"
         app:layout_columnWeight="1" />
 
     <Button
@@ -100,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/calligraphy"
-        android:text="GearSeekBar"
+        android:text="SeekBar"
         android:textAllCaps="false"
         android:textAppearance="@style/CusTomTextAppearance"
         app:layout_columnWeight="1" />
@@ -181,6 +171,16 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/calligraphy"
         android:text="事件传递"
+        android:textAllCaps="false"
+        android:textAppearance="@style/CusTomTextAppearance"
+        app:layout_columnWeight="1" />
+
+    <Button
+        android:id="@+id/layout_manager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/calligraphy"
+        android:text="布局管理器"
         android:textAllCaps="false"
         android:textAppearance="@style/CusTomTextAppearance"
         app:layout_columnWeight="1" />

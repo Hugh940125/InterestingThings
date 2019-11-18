@@ -43,12 +43,12 @@ public abstract class BaseRecyclerAdapter<T, VH extends RecyclerView.ViewHolder>
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        onBindViewHolder((VH) holder, mList.get(position%mList.size()), position);
+        onBindViewHolder((VH) holder, mList.get(position), position);//mList.get(position%mList.size())
     }
 
     @Override
     public int getItemCount() {
-        return Integer.MAX_VALUE;
+        return mList.size();//Integer.MAX_VALUE
     }
 
 

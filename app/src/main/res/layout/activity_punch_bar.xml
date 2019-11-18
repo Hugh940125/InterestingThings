@@ -7,12 +7,6 @@
     tools:context=".CustomizeViews.PunchBar.PunchBarActivity">
 
     <RelativeLayout
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@android:color/holo_red_light"/>
-
-    <RelativeLayout
         android:id="@+id/rl_scroll"
         android:background="@android:color/darker_gray"
         android:layout_marginTop="100dp"

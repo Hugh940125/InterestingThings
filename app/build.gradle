@@ -78,4 +78,5 @@ dependencies {
     //引入Gridlayout
     implementation 'com.android.support:gridlayout-v7:27.1.1'
     implementation 'org.jetbrains:annotations:15.0'
+    implementation 'com.ryan.rv_gallery:rv-gallery:1.1.2'
 }

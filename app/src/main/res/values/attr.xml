@@ -24,4 +24,8 @@
             <flag name="all" value="0"/>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="CommentView">
+        <attr name="isDisplayMode" format="boolean"/>
+    </declare-styleable>
 </resources>

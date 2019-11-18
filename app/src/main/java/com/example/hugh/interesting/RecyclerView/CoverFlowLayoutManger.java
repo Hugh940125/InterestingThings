@@ -43,7 +43,7 @@ public class CoverFlowLayoutManger extends RecyclerView.LayoutManager {
     private int mDecoratedChildHeight = 0;
 
     /**Item间隔与item宽的比例*/
-    private float mIntervalRatio = 0.5f;
+    private float mIntervalRatio = -0.5f;
 
     /**起始ItemX坐标*/
     private int mStartX = 0;

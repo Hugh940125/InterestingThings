@@ -162,6 +162,8 @@ public class RecyclerCoverFlow extends RecyclerView {
                     getParent().requestDisallowInterceptTouchEvent(true);
                 }
                 break;
+            case MotionEvent.ACTION_UP:
+                break;
         }
         return super.dispatchTouchEvent(ev);
     }

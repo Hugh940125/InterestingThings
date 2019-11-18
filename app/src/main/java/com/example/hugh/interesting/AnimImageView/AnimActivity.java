@@ -46,11 +46,6 @@ public class AnimActivity extends Activity {
         list.add(R.drawable.robot_telescopic_013);
         animImageView.setAnimation(ivAnim, list);
 
-        bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                animImageView.start(true,100);
-            }
-        });
+        bt.setOnClickListener(v -> animImageView.start(false,100));
     }
 }

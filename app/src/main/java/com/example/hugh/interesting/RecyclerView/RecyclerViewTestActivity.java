@@ -4,6 +4,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Button;
 
 import com.example.hugh.interesting.R;
@@ -28,6 +30,8 @@ public class RecyclerViewTestActivity extends AppCompatActivity {
     private ArrayList<Integer> strs;
     private int mPosition;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +39,11 @@ public class RecyclerViewTestActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 //        SnapHelper snapHelper = new StartSnapHelper();
 //        snapHelper.attachToRecyclerView(rvTest);
-        CoverFlowLayoutManger linearLayoutManager = new CoverFlowLayoutManger(false, false, false, 1F);
+        CoverFlowLayoutManger linearLayoutManager = new CoverFlowLayoutManger(false, false, false, 0.5F);
         rvTest.setLayoutManager(linearLayoutManager);
         TestAdapter testAdapter = new TestAdapter(this);
         rvTest.setOnItemSelectedListener(position -> mPosition = position);
+
         btNext.setOnClickListener(v -> {
             if (mPosition == testAdapter.getItemCount()-1) {
                 return;
