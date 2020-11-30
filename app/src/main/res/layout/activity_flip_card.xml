@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".CustomizeViews.FlipCard.FlipCardActivity">
+
+    <com.example.hugh.interesting.CustomizeViews.FlipCard.FlipCardVIew
+        android:layout_width="300dp"
+        android:layout_height="104dp"
+        android:id="@+id/fv_notice"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp">
+
+            <TextView
+                android:ellipsize="end"
+                android:layout_marginStart="5dp"
+                android:drawablePadding="12dp"
+                android:drawableStart="@drawable/notice_dot"
+                android:textColor="#FF666666"
+                android:textSize="14sp"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="天发发阿芳发爱国福阿萨德啊"/>
+
+            <TextView
+                android:ellipsize="end"
+                android:layout_marginStart="5dp"
+                android:drawablePadding="12dp"
+                android:drawableStart="@drawable/notice_dot"
+                android:textColor="#FF666666"
+                android:textSize="14sp"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="刚发的啊啊发发斯蒂芬"/>
+
+            <TextView
+                android:ellipsize="end"
+                android:layout_marginStart="5dp"
+                android:drawablePadding="12dp"
+                android:drawableStart="@drawable/notice_dot"
+                android:textColor="#FF666666"
+                android:textSize="14sp"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发送啊发丰厚的房间看法很少发"/>
+
+        </LinearLayout>
+
+    </com.example.hugh.interesting.CustomizeViews.FlipCard.FlipCardVIew>
+
+    <com.example.hugh.interesting.CustomizeViews.FlipCard.notice.NoticeView
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:id="@+id/nv"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

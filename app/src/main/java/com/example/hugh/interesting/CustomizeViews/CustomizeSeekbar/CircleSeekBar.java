@@ -34,7 +34,6 @@ public class CircleSeekBar extends View {
     private Paint paint2;
     private boolean isDownInRegion = false;
     private Region cursorRegion;
-    private double cycleArcTan;
     private float startX;
     private float startY;
     private float endX;
@@ -137,7 +136,7 @@ public class CircleSeekBar extends View {
                     float dltX = moveX - (mWidth >> 1);
                     float dltY = moveY - (mHeight >> 1);
                     double arcTan = Math.atan2(dltY, dltX);
-                    cycleArcTan = arcTan < 0 ? arcTan + 2 * Math.PI : arcTan;
+                    double cycleArcTan = arcTan < 0 ? arcTan + 2 * Math.PI : arcTan;
                     mSeekBarDegree = (float) Math.round(Math.toDegrees(cycleArcTan));
                     if (mSeekBarDegree >= 0 && mSeekBarDegree <= MAX_ANGLE) {
                         cursorX = (float) ((mWidth >> 1) + ((mWidth >> 1) - (MARK_WIDTH >> 1)) * Math.cos(arcTan));
@@ -155,9 +154,15 @@ public class CircleSeekBar extends View {
                 break;
             case MotionEvent.ACTION_UP:
                 judgePosition();
+                performClick();
                 break;
         }
         return true;
+    }
+
+    @Override
+    public boolean performClick() {
+        return super.performClick();
     }
 
     private void judgePosition() {

@@ -105,8 +105,7 @@ public class CircleProgressBar extends View {
         rectF = new RectF(DensityUtil.dp2px(10), DensityUtil.dp2px(10), getWidth() - DensityUtil.dp2px(10), getHeight() - DensityUtil.dp2px(10));
         mCenterX = getWidth() >> 1;
         mCenterY = getHeight() >> 1;
-        mSweepGradient = new SweepGradient(mCenterX, mCenterY, colors, mPositions);
-        matrix = new Matrix();
+           matrix = new Matrix();
     }
 
     public void setData(int percent) {

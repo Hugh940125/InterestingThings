@@ -27,9 +27,8 @@ public class EventDeliveryTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event_delivery);
         ButterKnife.bind(this);
 
-        rlSquare.setOnClickListener(v -> Toast.makeText(EventDeliveryTestActivity.this, "红色点击", Toast.LENGTH_SHORT).show());
-        tvSquare.setOnClickListener(v -> Toast.makeText(EventDeliveryTestActivity.this, "蓝色点击", Toast.LENGTH_SHORT).show());
-
+        //rlSquare.setOnClickListener(v -> Toast.makeText(EventDeliveryTestActivity.this, "红色点击", Toast.LENGTH_SHORT).show());
+        //tvSquare.setOnClickListener(v -> Toast.makeText(EventDeliveryTestActivity.this, "蓝色点击", Toast.LENGTH_SHORT).show());
     }
 
     @Override

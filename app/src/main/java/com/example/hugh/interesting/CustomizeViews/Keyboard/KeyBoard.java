@@ -212,9 +212,15 @@ public class KeyBoard extends View {
                         }
                     }
                 }
+                performClick();
                 break;
         }
         return true;
+    }
+
+    @Override
+    public boolean performClick() {
+        return super.performClick();
     }
 
     public interface OnTextUpdateListener{

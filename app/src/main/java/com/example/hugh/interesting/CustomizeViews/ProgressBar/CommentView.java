@@ -31,8 +31,6 @@ public class CommentView extends View {
     private Rect rect5;
     private int downX;
     private int downY;
-    private int upX;
-    private int upY;
     private int redStarCount;
     private boolean isDisplayMode;
 
@@ -158,8 +156,8 @@ public class CommentView extends View {
                     downY = (int) event.getY();
                     break;
                 case MotionEvent.ACTION_UP:
-                    upX = (int) event.getX();
-                    upY = (int) event.getY();
+                    int upX = (int) event.getX();
+                    int upY = (int) event.getY();
                     if (Math.abs(downX - upX) < 10 && Math.abs(downY - upY) < 10) {
                         if (rect1.contains(upX, upY)) {
                             redStarCount = 1;
@@ -174,6 +172,7 @@ public class CommentView extends View {
                         }
                         invalidate();
                     }
+                    performClick();
                     break;
                 case MotionEvent.ACTION_MOVE:
                     break;
@@ -181,5 +180,10 @@ public class CommentView extends View {
             return true;
         }
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean performClick() {
+        return super.performClick();
     }
 }

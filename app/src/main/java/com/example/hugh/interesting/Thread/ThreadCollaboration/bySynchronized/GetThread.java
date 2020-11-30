@@ -4,31 +4,29 @@ import android.util.Log;
 
 /**
  * Created by Hugh on 2019/4/1.
- *
  */
 
 public class GetThread extends Thread {
 
-    private final String TAG = "Thread Collaboration";
     private final WareHouse mWareHouse;
 
-    public GetThread(WareHouse wareHouse) {
+    public GetThread(WareHouse wareHouse,String name) {
         this.mWareHouse = wareHouse;
+        setName(name);
     }
 
     @Override
     public void run() {
         super.run();
         try {
-            while (true){
-                if (this.isInterrupted()){
-                    throw new InterruptedException();
-                }
-                sleep(1000);
-                mWareHouse.getProduct();
+            if (this.isInterrupted()) {
+                throw new InterruptedException();
             }
-        }catch (InterruptedException e){
-            Log.e(TAG,this.getName()+"取出线程中断了");
+            sleep(1000);
+            mWareHouse.getProduct();
+        } catch (InterruptedException e) {
+            String TAG = "Thread Collaboration";
+            Log.e(TAG, this.getName() + "取出线程中断了");
         }
     }
 }

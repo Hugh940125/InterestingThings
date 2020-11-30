@@ -177,8 +177,14 @@ public class VoteBar extends View {
                         isVoted = true;
                     }
                 }
+                performClick();
                 break;
         }
         return true;
+    }
+
+    @Override
+    public boolean performClick() {
+        return super.performClick();
     }
 }

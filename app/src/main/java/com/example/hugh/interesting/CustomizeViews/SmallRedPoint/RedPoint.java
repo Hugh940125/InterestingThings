@@ -256,8 +256,14 @@ public class RedPoint extends View {
                    animatorSet.setInterpolator(overshootInterpolator);
                    animatorSet.start();
                 //}
+                performClick();
                 break;
         }
         return true;
+    }
+
+    @Override
+    public boolean performClick() {
+        return super.performClick();
     }
 }

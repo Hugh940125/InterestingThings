@@ -22,7 +22,6 @@ import com.example.hugh.interesting.R;
 public class DialogPopupWindow extends PopupWindow {
 
 
-    private final View iv_cancle;
     private View mMenuView;
 
     public DialogPopupWindow(Context context, OnClickListener itemsOnClick) {
@@ -30,7 +29,7 @@ public class DialogPopupWindow extends PopupWindow {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mMenuView = inflater.inflate(R.layout.layout_popupwindow_dialog, null);
-        iv_cancle = mMenuView.findViewById(R.id.iv_cancel);
+        View iv_cancle = mMenuView.findViewById(R.id.iv_cancel);
         // 设置按钮监听
         iv_cancle.setOnClickListener(itemsOnClick);
 
@@ -59,6 +58,7 @@ public class DialogPopupWindow extends PopupWindow {
                         dismiss();
                     }
                 }
+                v.performClick();
                 return true;
             }
         });

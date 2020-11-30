@@ -24,9 +24,9 @@ public class WareHouse {
             }
         }
         Product product = mProducts.get(0);
-        mProducts.clear();
+        mProducts.remove(0);
         notifyAll();
-        Log.e(TAG,"取出物品"+Thread.currentThread().getName());
+        Log.e(TAG,"取出物品"+Thread.currentThread().getName()+"-"+product.getName());
         return product;
     }
 
@@ -40,6 +40,6 @@ public class WareHouse {
         }
         mProducts.add(product);
         notifyAll();
-        Log.e(TAG,"放入物品"+Thread.currentThread().getName());
+        Log.e(TAG,"放入物品"+Thread.currentThread().getName()+"-"+product.getName());
     }
 }

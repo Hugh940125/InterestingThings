@@ -27,12 +27,6 @@ import android.view.animation.DecelerateInterpolator;
 
 public class CoverFlowLayoutManger extends RecyclerView.LayoutManager {
 
-    /**
-     * 最大存储item信息存储数量，
-     * 超过设置数量，则动态计算来获取
-     */
-    private final int MAX_RECT_COUNT = 100;
-
     /**滑动总偏移量*/
     private int mOffsetAll = 0;
 
@@ -135,6 +129,11 @@ public class CoverFlowLayoutManger extends RecyclerView.LayoutManager {
         float offset = mStartX;
 
         /**只存{@link MAX_RECT_COUNT}个item具体位置*/
+        /**
+         * 最大存储item信息存储数量，
+         * 超过设置数量，则动态计算来获取
+         */
+        int MAX_RECT_COUNT = 100;
         for (int i = 0; i < getItemCount() && i < MAX_RECT_COUNT; i++) {
             Rect frame = mAllItemFrames.get(i);
             if (frame == null) {

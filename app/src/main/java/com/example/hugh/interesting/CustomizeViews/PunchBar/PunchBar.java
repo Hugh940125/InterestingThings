@@ -203,9 +203,15 @@ public class PunchBar extends View {
                         isPunched = false;
                     }
                 }
+                performClick();
                 break;
         }
         return isPunched;
+    }
+
+    @Override
+    public boolean performClick() {
+        return super.performClick();
     }
 
     static class Point {

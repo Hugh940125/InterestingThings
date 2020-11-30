@@ -127,10 +127,16 @@ public class GraphicLock extends View {
             case MotionEvent.ACTION_UP:
                 isFinished = true;
                 finishSelect();
+                performClick();
                 break;
         }
         postInvalidate();
         return true;
+    }
+
+    @Override
+    public boolean performClick() {
+        return super.performClick();
     }
 
     private void finishSelect() {

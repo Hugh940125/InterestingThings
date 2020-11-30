@@ -13,7 +13,6 @@ import com.example.hugh.interesting.R;
 public class GoogleDotView extends View implements IHeaderView {
     private Paint mPath;
     private float r;
-    private int num = 5;
 
     public void setCir_x(int cir_x) {
         this.cir_x = cir_x;
@@ -76,6 +75,7 @@ public class GoogleDotView extends View implements IHeaderView {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        int num = 5;
         int w = getMeasuredWidth() / num - 10;
         for (int i = 0; i < num; i++) {
             if (animating) {

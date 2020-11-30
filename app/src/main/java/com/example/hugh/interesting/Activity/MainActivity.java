@@ -12,6 +12,7 @@ import com.example.hugh.interesting.AnimImageView.AnimActivity;
 import com.example.hugh.interesting.Chart.ChartActivity;
 import com.example.hugh.interesting.CustomizeViews.CustomImageView.ImageViewActivity;
 import com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.GearSeekBarActivity;
+import com.example.hugh.interesting.CustomizeViews.FlipCard.FlipCardActivity;
 import com.example.hugh.interesting.CustomizeViews.GraphicLock.GraphicLockActivity;
 import com.example.hugh.interesting.CustomizeViews.Keyboard.KeyBoardActivity;
 import com.example.hugh.interesting.CustomizeViews.LayoutMannegerExcise.LayoutManagerActivity;
@@ -25,6 +26,7 @@ import com.example.hugh.interesting.R;
 import com.example.hugh.interesting.RecyclerView.RecyclerViewTestActivity;
 import com.example.hugh.interesting.Thread.ThreadCollaboration.ThreadActivity;
 import com.example.hugh.interesting.ViewBinder.ViewBinderTestActivity;
+import com.example.hugh.interesting.refresh.RefreshActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,8 +56,11 @@ public class MainActivity extends AppCompatActivity {
         Button imageView = findViewById(R.id.imageView);
         Button event = findViewById(R.id.event);
         Button layout_manager = findViewById(R.id.layout_manager);
+        Button layout_flip_card = findViewById(R.id.layout_flip_card);
 
-        layout_manager.setOnClickListener(v -> startActivity(new Intent(mActivity, LayoutManagerActivity.class)));
+        layout_flip_card.setOnClickListener(v -> startActivity(new Intent(mActivity, FlipCardActivity.class)));
+
+        layout_manager.setOnClickListener(v -> startActivity(new Intent(mActivity, RecyclerViewTestActivity.class)));
 
         event.setOnClickListener(v -> startActivity(new Intent(mActivity, EventDeliveryTestActivity.class)));
 

@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:context=".CustomizeViews.CustomizeSeekbar.GearSeekBarActivity">
+    android:id="@+id/sv">
 
-    <com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.GearSeekBar
-        android:layout_width="50dp"
-        android:layout_height="300dp"
-        android:layout_centerVertical="true"
-        android:background="@android:color/transparent"
-        android:id="@+id/gs"
-        android:layout_marginStart="30dp"/>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FAFBFC"
+        tools:context=".CustomizeViews.CustomizeSeekbar.GearSeekBarActivity">
 
-    <com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.CircleSeekBar
-        android:layout_width="200dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_height="200dp" />
+        <com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.AirControl
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/ac"
+            android:layout_gravity="center_horizontal"/>
 
-</RelativeLayout>
+        <com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.GearSeekBar
+            android:id="@+id/gs"
+            android:layout_marginTop="50dp"
+            android:layout_width="50dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent" />
+
+        <com.example.hugh.interesting.CustomizeViews.CustomizeSeekbar.CircleSeekBar
+            android:layout_width="240dp"
+            android:id="@+id/cs"
+            android:layout_height="240dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="30dp"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+</ScrollView>

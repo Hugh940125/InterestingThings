@@ -198,9 +198,15 @@ public class HousePlanView extends ViewGroup {
                     }
                     mSelectedView = -1;
                 }
+                performClick();
                 break;
         }
         return true;
+    }
+
+    @Override
+    public boolean performClick() {
+        return super.performClick();
     }
 
     public interface OnTagClickListener {

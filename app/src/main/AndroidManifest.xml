@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hugh.interesting">
 
-    <uses-permission android:name="android.permission.VIBRATE" />
-
     <application
         android:name=".Application.App"
         android:allowBackup="true"
@@ -11,7 +9,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CustomizeViews.LayoutMannegerExcise.LayoutManagerActivity"/>
+        <activity android:name=".refresh.RefreshActivity"></activity>
+        <activity android:name=".CustomizeViews.FlipCard.FlipCardActivity" />
+        <activity android:name=".CustomizeViews.LayoutMannegerExcise.LayoutManagerActivity" />
         <activity android:name=".CustomizeViews.CustomImageView.ImageViewActivity" />
         <activity android:name=".CustomizeViews.PunchBar.PunchBarActivity" />
         <activity android:name=".RecyclerView.RecyclerViewTestActivity" />
@@ -62,5 +62,7 @@
         <activity android:name=".Retrofit.RetrofitActivity" />
         <activity android:name=".Thread.ThreadCollaboration.ThreadActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.VIBRATE" />
 
 </manifest>

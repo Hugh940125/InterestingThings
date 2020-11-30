@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/bt_tc"
+            app:layout_constraintEnd_toStartOf="@id/bt_stop_tc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="同步开始"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread"/>
+
+        <Button
+            android:id="@+id/bt_stop_tc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="同步结束"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/bt_tc" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/bt_lock"
+            app:layout_constraintEnd_toStartOf="@id/bt_stop_lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="锁开始"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread"/>
+
+        <Button
+            android:id="@+id/bt_stop_lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="锁结束"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/bt_lock" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>
