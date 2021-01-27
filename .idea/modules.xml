@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/InterestingThings.iml" filepath="$PROJECT_DIR$/InterestingThings.iml" group="InterestingThings" />
-      <module fileurl="file://$PROJECT_DIR$/StudyTests.iml" filepath="$PROJECT_DIR$/StudyTests.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Tests.iml" filepath="$PROJECT_DIR$/Tests.iml" />
-      <module fileurl="file://$PROJECT_DIR$/annotator/annotator.iml" filepath="$PROJECT_DIR$/annotator/annotator.iml" group="InterestingThings/annotator" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="InterestingThings/app" />
-      <module fileurl="file://$PROJECT_DIR$/mouble_b/bmouble.iml" filepath="$PROJECT_DIR$/mouble_b/bmouble.iml" />
-      <module fileurl="file://$PROJECT_DIR$/compiler/compiler.iml" filepath="$PROJECT_DIR$/compiler/compiler.iml" group="InterestingThings/compiler" />
-      <module fileurl="file://$PROJECT_DIR$/module_b/module_b.iml" filepath="$PROJECT_DIR$/module_b/module_b.iml" group="InterestingThings/module_b" />
-      <module fileurl="file://$PROJECT_DIR$/module_b/mouble_b.iml" filepath="$PROJECT_DIR$/module_b/mouble_b.iml" />
-      <module fileurl="file://$PROJECT_DIR$/view_bind_api/view_bind_api.iml" filepath="$PROJECT_DIR$/view_bind_api/view_bind_api.iml" group="InterestingThings/view_bind_api" />
+      <module fileurl="file://$PROJECT_DIR$/InterestingThings.iml" filepath="$PROJECT_DIR$/InterestingThings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/annotator/InterestingThings.annotator.iml" filepath="$PROJECT_DIR$/.idea/modules/annotator/InterestingThings.annotator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/InterestingThings.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/InterestingThings.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/compiler/InterestingThings.compiler.iml" filepath="$PROJECT_DIR$/.idea/modules/compiler/InterestingThings.compiler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module_b/InterestingThings.module_b.iml" filepath="$PROJECT_DIR$/.idea/modules/module_b/InterestingThings.module_b.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/view_bind_api/InterestingThings.view_bind_api.iml" filepath="$PROJECT_DIR$/.idea/modules/view_bind_api/InterestingThings.view_bind_api.iml" />
     </modules>
   </component>
 </project>

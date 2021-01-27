@@ -113,7 +113,7 @@ dependencies {
     implementation 'com.android.support:support-v4:28.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     implementation 'com.jakewharton:butterknife:8.4.0'
-    implementation 'com.android.support:design:28.0.0'
+    //implementation 'com.android.support:design:28.0.0'
     //编译时注解相关
     implementation project(':view_bind_api')
     annotationProcessor project(':compiler')
@@ -132,5 +132,5 @@ dependencies {
     //引入Gridlayout
     implementation 'com.android.support:gridlayout-v7:28.0.0'
     implementation 'org.jetbrains:annotations:15.0'
-    implementation 'com.ryan.rv_gallery:rv-gallery:1.1.2'
+    //implementation 'com.ryan.rv_gallery:rv-gallery:1.1.2'
 }
